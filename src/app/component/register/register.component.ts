@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup,FormControl,Validators } from '@angular/forms';
+import { FormBuilder, FormGroup,FormControl,Validators, AbstractControl } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -8,6 +8,7 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup | undefined;
   submitted = false;
@@ -18,7 +19,7 @@ export class RegisterComponent implements OnInit {
     private toasterService:ToastrService,
   ) { }
 
-  get f() { return this.registerForm.controls; }
+  get f() { return this.registerForm.controls}
 
   ngOnInit(): void {
     this.createLoginForm();
