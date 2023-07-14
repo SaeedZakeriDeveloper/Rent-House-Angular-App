@@ -11,8 +11,13 @@ import { SingleResponseModel } from '../models/singleResponseModel';
 import { TokenModel } from '../models/tokenModel';
 import { LocalStorageService } from './local-storage-service.service';
 
+
+
+
+
+
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
 
@@ -59,20 +64,20 @@ export class AuthService {
     }
   }
 
-  // userDetailFromToken(){
-  //   this.token = this.localStorage.getItem("token");
-  //   let decodedToken = this.jwtHelper.decodeToken(this.token);
-  //   let name = decodedToken['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'];
-  //   this.name = name.split(' ')[0];
-  //   let surname = decodedToken['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'];
-  //   this.surname = surname.split(' ')[1];
-  //   this.roles = decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
-  //   this.role = decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
-  //   this.userId =parseInt(decodedToken['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier']);
-  //   this.email=decodedToken["email"];
-  //   this.userName= name.split(' ')[0]+" "+ surname.split(' ')[1] ;
+  userDetailFromToken(){
+    this.token = this.localStorage.getItem("token");
+    let decodedToken = this.jwtHelper.decodeToken(this.token);
+    let name = decodedToken['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'];
+    this.name = name.split(' ')[0];
+    let surname = decodedToken['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'];
+    this.surname = surname.split(' ')[1];
+    this.roles = decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
+    this.role = decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
+    this.userId =parseInt(decodedToken['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier']);
+    this.email=decodedToken["email"];
+    this.userName= name.split(' ')[0]+" "+ surname.split(' ')[1] ;
     
-  // }
+  }
 
   roleCheck(roleList: string[]) {
     if (this.roles !== null) {

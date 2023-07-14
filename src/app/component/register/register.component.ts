@@ -9,6 +9,8 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./register.component.css']
 })
 
+
+
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup | undefined;
   submitted = false;
