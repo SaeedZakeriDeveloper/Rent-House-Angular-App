@@ -12,10 +12,6 @@ import { TokenModel } from '../models/tokenModel';
 import { LocalStorageService } from './local-storage-service.service';
 
 
-
-
-
-
 @Injectable({
   providedIn: 'root',
 })
@@ -24,14 +20,14 @@ export class AuthService {
 
   apiUrl="https://localhost:44388/api/auth/";
   name: string = "";
-  surname:string="";
-  userName:string="";
+  surname:string= "";
+  userName:string= "";
   role:any;
   roles: any[] = [];
   token: any;
   isLoggedIn: boolean = false;
   userId: number;
-  email:string;
+  email:string ;
   
   constructor(
     private httpClient:HttpClient,
@@ -48,6 +44,7 @@ export class AuthService {
   register(registerModel:RegisterModel):Observable<SingleResponseModel<TokenModel>>{
     return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"register",registerModel)
   }
+  
   logout() {
   
     this.localStorage.clear()
