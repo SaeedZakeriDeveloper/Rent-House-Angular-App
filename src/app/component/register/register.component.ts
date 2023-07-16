@@ -21,7 +21,9 @@ export class RegisterComponent implements OnInit {
     private toasterService:ToastrService,
   ) { }
 
+
   get f() { return this.registerForm.controls}
+
 
   ngOnInit(): void {
     this.createLoginForm();
@@ -34,11 +36,12 @@ export class RegisterComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(8)]]
     })
   }
+
   register(){
     if(this.registerForm.valid){
       let registerModel =Object.assign({},this.registerForm.value)
         this.authService.register(registerModel).subscribe(response=>{
-        this.toasterService.success(response.message,"Başarılı")
+        this.toasterService.success(response.message,"Success")
         this.dataLoaded=true
         
       }
@@ -46,13 +49,18 @@ export class RegisterComponent implements OnInit {
        
         if(responseError.error.ValidationErrors.length > 0) {
          
-          this.toasterService.error(responseError.error,"Hata!")
+          this.toasterService.error(responseError.error,"Worng")
         }
         
       })
     }
      else {
-      this.toasterService.error("Lütfen tüm alanları doldurunuz","Dikkat!")
+      this.toasterService.error("Please complete all required fields.","Attention!")
     }
   }
 }
+
+
+
+
+
