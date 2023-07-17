@@ -18,7 +18,7 @@ import { LocalStorageService } from './local-storage-service.service';
 export class AuthService {
 
 
-  apiUrl="https://localhost:44388/api/auth/";
+  apiUrl=" http://localhost:3000/";
   name: string = "";
   surname:string= "";
   userName:string= "";
@@ -34,17 +34,21 @@ export class AuthService {
     private router: Router,
     private jwtHelper: JwtHelperService,
     private localStorage:LocalStorageService
- 
   ) { }
+
 
   login(loginModel:LoginModel):Observable<SingleResponseModel<TokenModel>>{
     return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"login",loginModel)
   }
 
-  register(registerModel:RegisterModel):Observable<SingleResponseModel<TokenModel>>{
-    return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"register",registerModel)
+
+  register(registerModel:RegisterModel) : Observable<SingleResponseModel<TokenModel>> {                        // har vaght bad az parantez va 2 noghte noe khoroji tabe moshakhas mishavad
+    return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"signup",registerModel)
   }
   
+
+
+
   logout() {
   
     this.localStorage.clear()
@@ -60,6 +64,9 @@ export class AuthService {
       return false
     }
   }
+
+
+
 
   userDetailFromToken(){
     this.token = this.localStorage.getItem("token");

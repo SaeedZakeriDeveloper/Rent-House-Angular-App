@@ -4,7 +4,7 @@
 	<div id="formContent">
 		<!-- Icon -->
 		<div class="fadeIn first">
-			<h2 class="my-5">OTURUM AÇ</h2>
+			<h2 class="my-5">SIGN IN</h2>
 		</div>
 
 		<!-- Login Form -->
@@ -12,11 +12,11 @@
 			<input formControlName="email" type="email" id="email" class="fadeIn second zero-raduis" name="email" placeholder="name@example.com">
 			<input formControlName="password" type="password" id="password" class="fadeIn third zero-raduis" name="login" placeholder="password">
 			<div id="formFooter">
-				<a class="underlineHover">Parolanızı mı unuttunuz?</a>
+				<a class="underlineHover">Forgot password?</a>
 			</div>
-			<input type="submit"   routerLinkActive="router-link-active"  (click)="login()" class="fadeIn fourth zero-raduis" value="Giriş Yap">
-			<h2>Hesabınız yokmu ?</h2>
-			<input routerLink="/register" type="button" class="fadeIn fourth zero-raduis pc" value="Kayıt Ol">
+			<input type="submit"  routerLinkActive="router-link-active"  (click)="login()" class="fadeIn fourth zero-raduis" value="Login">
+			<h2>Don't have an account?</h2>
+			<input routerLink="/register" type="button" class="fadeIn fourth zero-raduis pc" value="Register">
 		</form>
 
 	</div>

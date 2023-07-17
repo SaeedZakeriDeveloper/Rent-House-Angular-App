@@ -138,7 +138,7 @@ export function tokenGetter() {
 
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule,  //add shode baraye form module
     BrowserAnimationsModule,
     
     //NgMultiSelectDropDownModule.forRoot(),
