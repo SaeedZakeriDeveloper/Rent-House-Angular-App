@@ -81,6 +81,9 @@ import { RegisterComponent } from './component/register/register.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { LoginComponent } from './component/login/login.component';
 import {  UesrProfilComponent } from './component/uesr-profil/uesr-profil.component';
+import { NaviComponent } from './component/navi/navi.component';
+import { HomeComponent } from './component/home/home.component';
+import { FooterComponent } from './component/footer/footer.component';
 //import { HomeComponent } from './components/home/home/home.component';
 //import { UserComponent } from './components/auth/user-profil/user-profil.component';
 //import { UsereditComponent } from './components/auth/user-profil/useredit/useredit.component';
@@ -116,6 +119,9 @@ export function tokenGetter() {
     RegisterComponent,
     LoginComponent,
     UesrProfilComponent,
+    NaviComponent,
+    HomeComponent,
+    FooterComponent,
     //AdminDashboardComponent,
     //ColorsDashboardComponent,
     //ColorEditComponent,

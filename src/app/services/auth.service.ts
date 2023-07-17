@@ -41,8 +41,8 @@ export class AuthService {
     return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"login",loginModel)
   }
 
-
-  register(registerModel:RegisterModel) : Observable<SingleResponseModel<TokenModel>> {                        // har vaght bad az parantez va 2 noghte noe khoroji tabe moshakhas mishavad
+  // har vaght bad az parantez va 2 noghte noe khoroji tabe moshakhas mishavad
+  register(registerModel:RegisterModel) : Observable<SingleResponseModel<TokenModel>> {                   
     return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"signup",registerModel)
   }
   
@@ -57,6 +57,8 @@ export class AuthService {
 }
 
   isAuthenticated(){
+    let temp=this.localStorage.getItem("token")
+    console.log(temp);
     if(this.localStorage.getItem("token")){
       return true;
     }
@@ -64,9 +66,6 @@ export class AuthService {
       return false
     }
   }
-
-
-
 
   userDetailFromToken(){
     this.token = this.localStorage.getItem("token");
