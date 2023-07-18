@@ -1,12 +1,13 @@
 export interface House {
-    houseId: number;
-    locationId: number;
-    ownerId: number;
-    houseName: string;
-    locationName: string;
-    ownerName: string;
-    builtYear: number;
-    dailyPrice: number;
-    description: string;
-    imagePath: string;
-  }
+  id: number;
+  code: string;
+  address: string;
+  size: string;
+  bedrooms: string;
+  bathrooms: string;
+  price: number;
+  owner: string;
+  builtYear: string;
+  description: string;
+  imagePath: string;
+}
