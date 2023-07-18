@@ -6,11 +6,11 @@ import { AuthService } from 'src/app/services/auth.service';
 import { LocalStorageService } from 'src/app/services/local-storage-service.service';
 
 @Component({
-  selector: 'app-navi',
-  templateUrl: './navi.component.html',
-  styleUrls: ['./navi.component.css']
+  selector: 'app-nav',
+  templateUrl: './nav.component.html',
+  styleUrls: ['./nav.component.css']
 })
-export class NaviComponent implements OnInit {
+export class NavComponent implements OnInit {
   lastName=this.authService.name;
   firstName=this.authService.surname;
   userRol=this.authService.role
@@ -24,8 +24,8 @@ export class NaviComponent implements OnInit {
   ngOnInit(): void {
     if(this.isAuthenticated()){
       this.authService.userDetailFromToken();
-       
-    } 
+
+    }
   }
 
   isAuthenticated(){
@@ -39,13 +39,13 @@ export class NaviComponent implements OnInit {
    }
    checkAdminRole(){
 
-  
+
     if(this.authService.role[0]=="admin"){
       return true
     }
     else{
       return false
-    
+
     }
    }
 
@@ -57,7 +57,7 @@ export class NaviComponent implements OnInit {
       return false
     }
    }
-  
+
    checkNotRole(){
     if(this.authService.role==null){
       return true
@@ -66,10 +66,10 @@ export class NaviComponent implements OnInit {
       return false
     }
    }
-  
+
   logout(){
     this.authService.logout()
     this.toasterService.success("Checked Out","Successful")
   }
- 
+
 }
