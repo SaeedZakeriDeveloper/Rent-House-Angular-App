@@ -17,8 +17,7 @@ import { LocalStorageService } from './local-storage-service.service';
 })
 export class AuthService {
 
-
-  apiUrl=" http://localhost:3000/";
+  apiUrl="http://localhost:3000/";
   name: string = "";
   surname:string= "";
   userName:string= "";
@@ -28,7 +27,7 @@ export class AuthService {
   isLoggedIn: boolean = false;
   userId: number;
   email:string ;
-  
+
   constructor(
     private httpClient:HttpClient,
     private router: Router,
@@ -42,15 +41,15 @@ export class AuthService {
   }
 
   // har vaght bad az parantez va 2 noghte noe khoroji tabe moshakhas mishavad
-  register(registerModel:RegisterModel) : Observable<SingleResponseModel<TokenModel>> {                   
+  register(registerModel:RegisterModel) : Observable<SingleResponseModel<TokenModel>> {
     return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"signup",registerModel)
   }
-  
+
 
 
 
   logout() {
-  
+
     this.localStorage.clear()
     this.onRefresh();
     this.router.navigate(['/login']);
@@ -79,7 +78,7 @@ export class AuthService {
     this.userId =parseInt(decodedToken['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier']);
     this.email=decodedToken["email"];
     this.userName= name.split(' ')[0]+" "+ surname.split(' ')[1] ;
-    
+
   }
 
   roleCheck(roleList: string[]) {
@@ -105,7 +104,7 @@ export class AuthService {
     })
   }
 
-  
+
   changePassword(passwordChangeModel:PasswordChangeModel):Observable<ResponseModel>{
     let newPath = this.apiUrl + "changepassword"
     return this.httpClient
