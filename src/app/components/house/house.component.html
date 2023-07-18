@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+<!--      <app-brand></app-brand>-->
+<!--      <app-color></app-color>-->
+    </div>
+    <div class="col-md-9">
+      <div class="mb-3" >
+        <label for="filter" class="form-label"></label>
+        <input type="text" [(ngModel)]="filter" class="form-control" id="filter"
+               placeholder="What are you looking for?">
+      </div>
+
+<!--      <app-car-filter></app-car-filter>-->
+      <div class="row" *ngIf="dataLoaded==true">
+        <div *ngFor="let house of houses |carFilter:carFilter" class="card m-2 " style="width: 267px; ">
+          <img  src="{{imageUrl}}{{house.imagePath}}" alt="{{imageUrl}}{{house.imagePath}}" class="card-img-top" width="320" height="200" >
+
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-center">{{house.code}}</h5>
+            <p class="card-text d-flex justify-content-center">{{house.description}}</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Size: {{house.size}}</li>
+            <li class="list-group-item">Bedrooms: {{house.bedrooms}}</li>
+            <li class="list-group-item">Bathrooms: {{house.bathrooms}}</li>
+            <li class="list-group-item">Price: {{house.price }}</li>
+          </ul>
+          <div class="card-body">
+            <section style="float:left">
+<!--              <button routerLink="/car/details/{{car.carId }}" type="button" class="btn btn-outline-dark">Detay</button>-->
+            </section>
+            <section style="float: right">
+<!--              <button routerLink="/car/rental/{{car.carId}}" type="button" class="btn btn-outline-dark">Kirala</button>-->
+            </section>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
