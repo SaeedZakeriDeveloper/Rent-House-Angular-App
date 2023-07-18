@@ -8,6 +8,7 @@ import { HouseService  } from 'src/app/services/house.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent implements OnInit {
   imageUrl="https://localhost:44388";
   houses:House[]=[];
@@ -26,6 +27,8 @@ export class HomeComponent implements OnInit {
       this.dataLoaded=true;
     })
   }
+
+  
 
   getCurrentImageClass(house:House){
     if(house==this.houses[0]){

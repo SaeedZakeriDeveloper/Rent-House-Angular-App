@@ -7,6 +7,7 @@
  .navbar{
     background-color: #212529!important;
     color: white;
+   height: 10vh;
  }
   .auth{
      border-color:#f22324;

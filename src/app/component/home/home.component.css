@@ -4,6 +4,7 @@
     }
 }
 
+
 @media (max-width: 992px) {
     .slider_section .slider_container {
         flex-direction: column;
@@ -217,6 +218,12 @@ body {
     margin: 0 auto;
   }
   
+  /* Bos az Labet */
+
+  .imageHight{                 
+    height: 90vh;
+  }
+
   .custom_nav-container.navbar-expand-lg .navbar-nav .nav-link img {
     width: 22px;
     margin-right: 15px;
@@ -1049,7 +1056,9 @@ body {
     left: calc(50% - 45px);
     background-image: url('../../../assets/left-angle.png');
   }
+
   /* ../../../assets/İmg/left-angle.png */
+
   .client_section .owl-carousel .owl-nav .owl-prev:hover {
     background-image: url('../../../assets/left-angle-grey.png');
   }
