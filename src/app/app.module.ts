@@ -2,8 +2,8 @@
 // import { BrowserModule } from '@angular/platform-browser';
 
 // import { AppRoutingModule } from './app-routing.module';
-// import { AppComponent } from './app.component';
-// import {RegisterComponent} from './component/register/register.component'
+// import { AppComponent } from './app.components';
+// import {RegisterComponent} from './components/register/register.components'
 // import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { HttpClientModule } from '@angular/common/http';
 // import { JwtHelperService } from '@auth0/angular-jwt';
@@ -17,7 +17,7 @@
 //   declarations: [
 //     AppComponent,
 //     RegisterComponent,
-    
+
 //   ],
 //   imports: [
 //     BrowserModule,
@@ -29,8 +29,8 @@
 //   providers: [
 //     JwtHelperService,
 //     InjectionToken,
-    
-   
+
+
 //   ],
 //   bootstrap: [AppComponent]
 // })
@@ -48,45 +48,47 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JwtModule } from '@auth0/angular-jwt';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-//import { NaviComponent } from './components/navi/navi.component';
-//import { CustomerComponent } from './components/customer/customer.component';
-//import { RentalComponent } from './components/rental/rental.component';
-//import { ColorComponent } from './components/color/color.component';
-//import { CarComponent } from './components/car/car.component';
-//import { BrandComponent } from './components/brand/brand.component';
-//import { CarDetailComponent } from './components/car-detail/car-detail.component';
+//import { NaviComponent } from './components/nav/nav.components';
+//import { CustomerComponent } from './components/customer/customer.components';
+//import { RentalComponent } from './components/rental/rental.components';
+//import { ColorComponent } from './components/color/color.components';
+//import { CarComponent } from './components/car/car.components';
+//import { BrandComponent } from './components/brand/brand.components';
+//import { CarDetailComponent } from './components/car-detail/car-detail.components';
 //import { ColorFilterPipe } from './pipes/color-filter.pipe';
 //import { BrandFilterPipe } from './pipes/brand-filter.pipe';
 //import { CarFilterPipe } from './pipes/car-filter.pipe';
 //import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
-//import { CarFilterComponent } from './components/car-filter/car-filter.component';
+//import { CarFilterComponent } from './components/car-filter/car-filter.components';
 
 
 import { ToastrModule } from 'ngx-toastr';
-//import { CreditCardComponent } from './components/creditcard/creditcard.component';
-//import { CarAddComponent } from './components/pages/admin-dashboard/cars-dashboard/car-add/car-add.component';
+//import { CreditCardComponent } from './components/creditcard/creditcard.components';
+//import { CarAddComponent } from './components/pages/admin-dashboard/cars-dashboard/car-add/car-add.components';
 
-//import { BrandAddComponent } from './components/pages/admin-dashboard/brands-dashboard/brand-add/brand-add.component';
-//import { FooterComponent } from './components/footer/footer.component';
-//import { LoginComponent } from './components/auth/login/login.component';
-import { RegisterComponent } from './component/register/register.component';
-//import { AdminDashboardComponent } from './components/pages/admin-dashboard/admin-dashboard.component';
-//import { ColorsDashboardComponent } from './components/pages/admin-dashboard/colors-dashboard/colors-dashboard.component';
-//import { ColorAddComponent } from './components/pages/admin-dashboard/colors-dashboard/color-add/color-add.component';
-//import { ColorEditComponent } from './components/pages/admin-dashboard/colors-dashboard/color-edit/color-edit.component';
-//import { BrandsDashboardComponent } from './components/pages/admin-dashboard/brands-dashboard/brands-dashboard.component';
-//import { BrandEditComponent } from './components/pages/admin-dashboard/brands-dashboard/brand-edit/brand-edit.component';
-//import { CarsDashboardComponent } from './components/pages/admin-dashboard/cars-dashboard/cars-dashboard.component';
-//import { CarEditComponent } from './components/pages/admin-dashboard/cars-dashboard/car-edit/car-edit.component';
+//import { BrandAddComponent } from './components/pages/admin-dashboard/brands-dashboard/brand-add/brand-add.components';
+//import { FooterComponent } from './components/footer/footer.components';
+//import { LoginComponent } from './components/auth/login/login.components';
+import { RegisterComponent } from './components/register/register.component';
+//import { AdminDashboardComponent } from './components/pages/admin-dashboard/admin-dashboard.components';
+//import { ColorsDashboardComponent } from './components/pages/admin-dashboard/colors-dashboard/colors-dashboard.components';
+//import { ColorAddComponent } from './components/pages/admin-dashboard/colors-dashboard/color-add/color-add.components';
+//import { ColorEditComponent } from './components/pages/admin-dashboard/colors-dashboard/color-edit/color-edit.components';
+//import { BrandsDashboardComponent } from './components/pages/admin-dashboard/brands-dashboard/brands-dashboard.components';
+//import { BrandEditComponent } from './components/pages/admin-dashboard/brands-dashboard/brand-edit/brand-edit.components';
+//import { CarsDashboardComponent } from './components/pages/admin-dashboard/cars-dashboard/cars-dashboard.components';
+//import { CarEditComponent } from './components/pages/admin-dashboard/cars-dashboard/car-edit/car-edit.components';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
-import { LoginComponent } from './component/login/login.component';
-import {  UesrProfilComponent } from './component/uesr-profil/uesr-profil.component';
-import { NaviComponent } from './component/navi/navi.component';
-import { HomeComponent } from './component/home/home.component';
-import { FooterComponent } from './component/footer/footer.component';
-//import { HomeComponent } from './components/home/home/home.component';
-//import { UserComponent } from './components/auth/user-profil/user-profil.component';
-//import { UsereditComponent } from './components/auth/user-profil/useredit/useredit.component';
+import { LoginComponent } from './components/login/login.component';
+import {  UesrProfilComponent } from './components/uesr-profil/uesr-profil.component';
+import { NavComponent } from './components/nav/nav.component';
+import { HomeComponent } from './components/home/home.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HouseComponent } from './components/house/house.component';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+//import { HomeComponent } from './components/home/home/home.components';
+//import { UserComponent } from './components/auth/user-profil/user-profil.components';
+//import { UsereditComponent } from './components/auth/user-profil/useredit/useredit.components';
 
 
 
@@ -119,9 +121,11 @@ export function tokenGetter() {
     RegisterComponent,
     LoginComponent,
     UesrProfilComponent,
-    NaviComponent,
+    NavComponent,
     HomeComponent,
     FooterComponent,
+    HouseComponent,
+    AdminDashboardComponent,
     //AdminDashboardComponent,
     //ColorsDashboardComponent,
     //ColorEditComponent,
@@ -131,14 +135,14 @@ export function tokenGetter() {
    // HomeComponent,
     //UserComponent,
     ///UsereditComponent,
-   
-   
-    
-  
-  
+
+
+
+
+
   ],
   imports: [
-    
+
     BrowserModule,
     AppRoutingModule,
 
@@ -146,7 +150,7 @@ export function tokenGetter() {
     FormsModule,
     ReactiveFormsModule,  //add shode baraye form module
     BrowserAnimationsModule,
-    
+
     //NgMultiSelectDropDownModule.forRoot(),
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"
