@@ -18,23 +18,23 @@ export class HouseService {
   }
 
   getAll(): Observable<ListResponseModel<House>> {
-    return this.httpClient.get<ListResponseModel<House>>(this.apiUrl + "houses");
+    return this.httpClient.get<ListResponseModel<House>>(this.apiUrl + "house");
   }
 
   getById(id: number): Observable<SingleResponseModel<House>> {
-    return this.httpClient.get<SingleResponseModel<House>>(this.apiUrl + "houses/" + id);
+    return this.httpClient.get<SingleResponseModel<House>>(this.apiUrl + "house/" + id);
   }
 
   add(house: House): Observable<ResponseModel> {
-    return this.httpClient.post<ResponseModel>(this.apiUrl + "houses", house);
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "house", house);
   }
 
   update(house: House): Observable<ResponseModel> {
-    return this.httpClient.put<ResponseModel>(this.apiUrl + "houses/" + house.id, house);
+    return this.httpClient.put<ResponseModel>(this.apiUrl + "house/" + house.id, house);
   }
 
   delete(id: number): Observable<ResponseModel> {
-    return this.httpClient.delete<ResponseModel>(this.apiUrl + "houses/" + id);
+    return this.httpClient.delete<ResponseModel>(this.apiUrl + "house/" + id);
   }
 
   // getHousesByBrand(brandId:number):Observable<ListResponseModel<House>>{

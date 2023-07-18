@@ -1,48 +1,52 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { HouseService } from 'src/app/services/house.service';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {HouseService} from 'src/app/services/house.service';
 import {House} from "../../models/house";
 
 @Component({
-  selector: 'app-car',
-  templateUrl: './car.component.html',
-  styleUrls: ['./car.component.css']
+  selector: 'app-house',
+  templateUrl: './house.component.html',
+  styleUrls: ['./house.component.css']
 })
-export class CarComponent implements OnInit {
-  houses:House[]=[];
-  dataLoaded=false
-  imageUrl="https://localhost:44388";
-  filter: string="";
+export class HouseComponent implements OnInit {
+
+  houses: House[] = [];
+  dataLoaded = false
+  imageUrl = "https://localhost:44388";
+  filter: string = "";
 
   constructor(
-    private houseService:HouseService,
-    private activatedRoute:ActivatedRoute,
+    private houseService: HouseService,
+    private activatedRoute: ActivatedRoute,
   ) {
   }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(params=>{
-    //   if(params["brandId"] && params["colorId"]){
-    //     this.getCarsBySelect(params["brandId"],params["colorId"])
-    //   }
-    //   else if(params["colorId"]){
-    //     this.getCarsByColor(params["colorId"]);
-    //   }
-    //   else if(params["brandId"]){
-    //     this.getCarsByBrand(params["brandId"])
-    //
-    //   }
-    //   else{
-    //     this.getCars()
-    //   }
+    this.activatedRoute.params.subscribe(params => {
+      //   if(params["brandId"] && params["colorId"]){
+      //     this.getCarsBySelect(params["brandId"],params["colorId"])
+      //   }
+      //   else if(params["colorId"]){
+      //     this.getCarsByColor(params["colorId"]);
+      //   }
+      //   else if(params["brandId"]){
+      //     this.getCarsByBrand(params["brandId"])
+      //
+      //   }
+      //   else{
+      //     this.getCars()
+      //   }
     })
-
+    this.houseService.getAll().subscribe(response => {
+      this.houses = response as any;
+      this.dataLoaded = true;
+    })
   }
 
-  getCars(){
-    this.houseService.getAll().subscribe(response=>{
-      this.houses=response.data;
-      this.dataLoaded=true;
+  getCars() {
+    this.houseService.getAll().subscribe(response => {
+      this.houses = response.data;
+      this.dataLoaded = true;
     })
   }
 

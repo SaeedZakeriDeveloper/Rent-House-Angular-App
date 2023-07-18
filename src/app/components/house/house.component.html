@@ -13,7 +13,8 @@
 
 <!--      <app-car-filter></app-car-filter>-->
       <div class="row" *ngIf="dataLoaded==true">
-        <div *ngFor="let house of houses |carFilter:carFilter" class="card m-2 " style="width: 267px; ">
+<!--        <div *ngFor="let house of houses |carFilter:carFilter" class="card m-2 " style="width: 267px; ">-->
+        <div *ngFor="let house of houses" class="card m-2 " style="width: 267px; ">
           <img  src="{{imageUrl}}{{house.imagePath}}" alt="{{imageUrl}}{{house.imagePath}}" class="card-img-top" width="320" height="200" >
 
           <div class="card-body">
