@@ -39,29 +39,186 @@
   "house": [
     {
       "id": 1,
-      "code": 1000,
-      "address": "Canada",
-      "size": "230",
-      "bedrooms": 3,
-      "bathrooms": 2,
-      "price": 1405000,
-      "owner": "David",
-      "builtYear": "2015",
-      "description": "...",
-      "imagePath": "../../../assets/1.jpg"
+      "code": 1001,
+      "address": "123 Main Street",
+      "size": "600 sq. ft.",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "price": 100000,
+      "owner": "Alice",
+      "builtYear": "2010",
+      "description": "A cozy 1-bedroom apartment with a great view...",
+      "imagePath": "../../../assets/bedroom1_1.jpg"
     },
+    
     {
       "id": 2,
-      "code": 1001,
-      "address": "Canada",
-      "size": "230",
+      "code": 1002,
+      "address": "456 Park Avenue",
+      "size": "550 sq. ft.",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "price": 95000,
+      "owner": "Bob",
+      "builtYear": "2015",
+      "description": "A stylish 1-bedroom apartment in a prime location...",
+      "imagePath": "../../../assets/bedroom1_2.jpg"
+    },
+    
+    {
+      "id": 3,
+      "code": 1003,
+      "address": "789 Ocean Drive",
+      "size": "700 sq. ft.",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "price": 120000,
+      "owner": "Charlie",
+      "builtYear": "2012",
+      "description": "A modern 1-bedroom apartment with top-notch amenities...",
+      "imagePath": "../../../assets/bedroom1_3.jpg"
+    },
+    
+   {
+      "id": 4,
+      "code": 1004,
+      "address": "101 Forest Lane",
+      "size": "500 sq. ft.",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "price": 90000,
+      "owner": "David",
+      "builtYear": "2018",
+      "description": "A charming 1-bedroom apartment surrounded by nature...",
+      "imagePath": "../../../assets/bedroom1_4.jpg"
+    },
+    
+    {
+      "id": 5,
+      "code": 2001,
+      "address": "246 Elm Street",
+      "size": "900 sq. ft.",
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "price": 160000,
+      "owner": "Emma",
+      "builtYear": "2011",
+      "description": "A spacious 2-bedroom apartment with a lovely balcony...",
+      "imagePath": "../../../assets/bedroom2_1.jpg"
+    },
+    
+    {
+      "id": 6,
+      "code": 2002,
+      "address": "789 Maple Avenue",
+      "size": "850 sq. ft.",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "price": 180000,
+      "owner": "Frank",
+      "builtYear": "2014",
+      "description": "A modern 2-bedroom apartment with two bathrooms...",
+      "imagePath": "../../../assets/bedroom2_2.jpg"
+    },
+    
+    {
+      "id": 7,
+      "code": 2003,
+      "address": "123 Oak Road",
+      "size": "950 sq. ft.",
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "price": 155000,
+      "owner": "Grace",
+      "builtYear": "2013",
+      "description": "A cozy 2-bedroom apartment with natural lighting...",
+      "imagePath": "../../../assets/bedroom2_3.jpg"
+    },
+    
+    {
+      "id": 8,
+      "code": 2004,
+      "address": "456 Cedar Street",
+      "size": "800 sq. ft.",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "price": 175000,
+      "owner": "Henry",
+      "builtYear": "2016",
+      "description": "A comfortable 2-bedroom apartment with modern amenities...",
+      "imagePath": "../../../assets/bedroom2_4.jpg"
+    },
+    
+    {
+      "id": 9,
+      "code": 3001,
+      "address": "246 Pine Avenue",
+      "size": "1200 sq. ft.",
       "bedrooms": 3,
       "bathrooms": 2,
-      "price": 1405000,
-      "owner": "David",
-      "builtYear": "2015",
-      "description": "...",
-      "imagePath":"../../../assets/2.jpg"
+      "price": 250000,
+      "owner": "Isabella",
+      "builtYear": "2012",
+      "description": "A spacious 3-bedroom apartment with two bathrooms...",
+      "imagePath": "../../../assets/bedroom3_1.jpg"
+    },
+    
+     {
+      "id": 10,
+      "code": 3002,
+      "address": "789 Birch Lane",
+      "size": "1100 sq. ft.",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "price": 235000,
+      "owner": "Jack",
+      "builtYear": "2013",
+      "description": "A modern 3-bedroom apartment with a beautiful view...",
+      "imagePath": "../../../assets/bedroom3_2.jpg"
+    },
+    
+    {
+      "id": 11,
+      "code": 3003,
+      "address": "123 Maple Avenue",
+      "size": "1300 sq. ft.",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "price": 265000,
+      "owner": "Kate",
+      "builtYear": "2011",
+      "description": "A luxurious 3-bedroom apartment with high-end finishes...",
+      "imagePath": "../../../assets/bedroom3_3.jpg"
+    },
+    
+    {
+      "id": 12,
+      "code": 3004,
+      "address": "456 Oak Road",
+      "size": "1150 sq. ft.",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "price": 255000,
+      "owner": "Liam",
+      "builtYear": "2014",
+      "description": "A stylish 3-bedroom apartment with modern design...",
+      "imagePath": "../../../assets/bedroom3_4.jpg"
     }
+  ],
+  
+  "bedroom":[
+    { "id" : 1,
+      "title" : "1 bedroom"
+    },
+    { "id" : 2,
+      "title" : "2 bedrooms"
+    },
+    { "id" : 3,
+      "title" : "3 bedrooms"
+    },
+    { "id" : 4,
+    "title" :   "4 bedrooms"
+    }
+
   ]
 }
