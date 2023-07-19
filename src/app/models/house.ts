@@ -3,7 +3,7 @@ export interface House {
   code: string;
   address: string;
   size: string;
-  bedrooms: string;
+  bedrooms: number;
   bathrooms: string;
   price: number;
   owner: string;
@@ -11,3 +11,5 @@ export interface House {
   description: string;
   imagePath: string;
 }
+
+

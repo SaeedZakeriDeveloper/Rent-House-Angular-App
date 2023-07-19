@@ -13,6 +13,7 @@ const routes: Routes = [
   {path: "house", component: HouseComponent},
   {path: "admin", component: AdminDashboardComponent},
   {path:"house/bedroom/:bedroomId",component:HouseComponent},
+  {path:"house/price/:priceId",component:HouseComponent},
 
 
 ];

@@ -18,16 +18,11 @@ export class BedroomComponent implements OnInit {
   constructor(private bedroomService:BedroomService) { }
 
   ngOnInit(): void {
-    this.getAllBedrooms();
-  }
-
-  getAllBedrooms () {
-    this.bedroomService.getAllBedrooms().subscribe(response => {
-      this.bedrooms = response as any
-      this.dataLoaded = true;
+    this.bedroomService.getAllBedrooms().subscribe(response=>{
+      this.bedrooms=response as any;
+      this.dataLoaded=true;
     })
   }
-
 
   setCurrentBedroom(bedroom:Bedroom){
     this.currentBedroom=bedroom;

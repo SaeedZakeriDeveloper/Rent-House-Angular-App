@@ -18,7 +18,7 @@ export class HouseService {
   }
 
   getAllHouses(): Observable<ListResponseModel<House>> {
-    return this.httpClient.get<ListResponseModel<House>>(this.apiUrl + "house");
+    return this.httpClient.get<ListResponseModel<House>>(this.apiUrl + "house"); // Array<House>
   }
 
   getHouseById(id: number): Observable<SingleResponseModel<House>> {
@@ -36,14 +36,6 @@ export class HouseService {
 
   deleteHouse(id: number): Observable<ResponseModel> {
     return this.httpClient.delete<ResponseModel>(this.apiUrl + "house/" + id);
-  }
-
-  getHousesByBedrooms(bedrooms: string): House[] {
-    let result: Array<House> = [];
-    this.getAllHouses().subscribe(res => {
-      result = (res as any).filter((house: any) => house.bedrooms == bedrooms) as Array<House>;
-    });
-    return result;
   }
 
 

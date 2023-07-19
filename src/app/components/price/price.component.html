@@ -1,0 +1,21 @@
+
+
+<div>
+    <label for="priceFilter" class="form-label"></label>
+
+    <input type="text" [(ngModel)]="priceFilter" class="form-control" id="priceFilter"
+        placeholder="enter search phrase">
+
+</div>
+
+<ul *ngIf="dataLoaded == true" class="list-group">
+    <li routerLink="/house" [ngClass]="getAllPriceClass()" aria-current="true">
+
+        All Prices
+
+    </li>
+    <li (click)="setCurrentPrice(price)" *ngFor="let price of prices  |priceFilter:priceFilter"
+        routerLink="/house/price/{{price.id}}" [class]="getCurrentPriceClass(price)">{{price.title}}
+    </li>
+
+</ul>

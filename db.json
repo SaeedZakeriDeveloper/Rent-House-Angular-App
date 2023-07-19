@@ -44,7 +44,7 @@
       "size": "600 sq. ft.",
       "bedrooms": 1,
       "bathrooms": 1,
-      "price": 100000,
+      "price": 100,
       "owner": "Alice",
       "builtYear": "2010",
       "description": "A cozy 1-bedroom apartment with a great view...",
@@ -58,7 +58,7 @@
       "size": "550 sq. ft.",
       "bedrooms": 1,
       "bathrooms": 1,
-      "price": 95000,
+      "price": 250,
       "owner": "Bob",
       "builtYear": "2015",
       "description": "A stylish 1-bedroom apartment in a prime location...",
@@ -72,7 +72,7 @@
       "size": "700 sq. ft.",
       "bedrooms": 1,
       "bathrooms": 1,
-      "price": 120000,
+      "price": 300,
       "owner": "Charlie",
       "builtYear": "2012",
       "description": "A modern 1-bedroom apartment with top-notch amenities...",
@@ -86,7 +86,7 @@
       "size": "500 sq. ft.",
       "bedrooms": 1,
       "bathrooms": 1,
-      "price": 90000,
+      "price": 400,
       "owner": "David",
       "builtYear": "2018",
       "description": "A charming 1-bedroom apartment surrounded by nature...",
@@ -100,7 +100,7 @@
       "size": "900 sq. ft.",
       "bedrooms": 2,
       "bathrooms": 1,
-      "price": 160000,
+      "price": 700,
       "owner": "Emma",
       "builtYear": "2011",
       "description": "A spacious 2-bedroom apartment with a lovely balcony...",
@@ -114,7 +114,7 @@
       "size": "850 sq. ft.",
       "bedrooms": 2,
       "bathrooms": 2,
-      "price": 180000,
+      "price": 600,
       "owner": "Frank",
       "builtYear": "2014",
       "description": "A modern 2-bedroom apartment with two bathrooms...",
@@ -126,9 +126,9 @@
       "code": 2003,
       "address": "123 Oak Road",
       "size": "950 sq. ft.",
-      "bedrooms": 2,
+      "bedrooms": 3,
       "bathrooms": 1,
-      "price": 155000,
+      "price": 250,
       "owner": "Grace",
       "builtYear": "2013",
       "description": "A cozy 2-bedroom apartment with natural lighting...",
@@ -142,7 +142,7 @@
       "size": "800 sq. ft.",
       "bedrooms": 2,
       "bathrooms": 2,
-      "price": 175000,
+      "price":  490,
       "owner": "Henry",
       "builtYear": "2016",
       "description": "A comfortable 2-bedroom apartment with modern amenities...",
@@ -156,7 +156,7 @@
       "size": "1200 sq. ft.",
       "bedrooms": 3,
       "bathrooms": 2,
-      "price": 250000,
+      "price": 300,
       "owner": "Isabella",
       "builtYear": "2012",
       "description": "A spacious 3-bedroom apartment with two bathrooms...",
@@ -168,9 +168,9 @@
       "code": 3002,
       "address": "789 Birch Lane",
       "size": "1100 sq. ft.",
-      "bedrooms": 3,
+      "bedrooms": 1,
       "bathrooms": 2,
-      "price": 235000,
+      "price": 900,
       "owner": "Jack",
       "builtYear": "2013",
       "description": "A modern 3-bedroom apartment with a beautiful view...",
@@ -182,9 +182,9 @@
       "code": 3003,
       "address": "123 Maple Avenue",
       "size": "1300 sq. ft.",
-      "bedrooms": 3,
+      "bedrooms": 2,
       "bathrooms": 2,
-      "price": 265000,
+      "price": 1000,
       "owner": "Kate",
       "builtYear": "2011",
       "description": "A luxurious 3-bedroom apartment with high-end finishes...",
@@ -196,9 +196,9 @@
       "code": 3004,
       "address": "456 Oak Road",
       "size": "1150 sq. ft.",
-      "bedrooms": 3,
+      "bedrooms": 4,
       "bathrooms": 2,
-      "price": 255000,
+      "price": 650,
       "owner": "Liam",
       "builtYear": "2014",
       "description": "A stylish 3-bedroom apartment with modern design...",
@@ -220,5 +220,40 @@
     "title" :   "4 bedrooms"
     }
 
+  ],
+  "price" :[
+    {
+      "id" : 1 ,
+      "title" : "From $0 to $200",
+      "from" : 0,
+      "to" : 200
+    },
+    {
+      "id" : 2 ,
+      "title" : "From $200 to $400",
+      "from" : 200,
+      "to" : 400
+    },
+    {
+      "id" : 3 ,
+      "title" : "From $400 to $600",
+      "from" : 400,
+      "to" : 600
+    },
+    {
+      "id" : 4 ,
+      "title" : "From $600 to $800",
+      "from" : 600,
+      "to" : 800
+    },
+    {
+      "id" : 5 ,
+      "title" : "From $800 to $1000",
+      "from" : 800,
+      "to" : 1000
+    }
+    
+    
   ]
+
 }

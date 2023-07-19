@@ -10,6 +10,8 @@ import { SingleResponseModel } from '../models/singleResponseModel'
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class BedroomService {
 
  apiUrl='http://localhost:3000/';
