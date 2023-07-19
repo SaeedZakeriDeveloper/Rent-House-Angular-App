@@ -12,6 +12,7 @@ const routes: Routes = [
   {path: "register", component: RegisterComponent},
   {path: "house", component: HouseComponent},
   {path: "admin", component: AdminDashboardComponent},
+  {path:"house/bedroom/:bedroomId",component:HouseComponent},
 
 
 ];

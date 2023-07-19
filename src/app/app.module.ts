@@ -86,6 +86,8 @@ import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HouseComponent } from './components/house/house.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { BedroomComponent } from './components/bedroom/bedroom.component';
+import { BedroomFilterPipe } from './pipes/bedroom-filter.pipe';
 //import { HomeComponent } from './components/home/home/home.components';
 //import { UserComponent } from './components/auth/user-profil/user-profil.components';
 //import { UsereditComponent } from './components/auth/user-profil/useredit/useredit.components';
@@ -126,6 +128,8 @@ export function tokenGetter() {
     FooterComponent,
     HouseComponent,
     AdminDashboardComponent,
+    BedroomComponent,
+    BedroomFilterPipe,
     //AdminDashboardComponent,
     //ColorsDashboardComponent,
     //ColorEditComponent,

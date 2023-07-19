@@ -24,33 +24,43 @@ export class HouseComponent implements OnInit {
   }
 
   ngOnInit(): void {
-   // this.activatedRoute.params.subscribe(params => {
-      //   if(params["brandId"] && params["colorId"]){
-      //     this.getCarsBySelect(params["brandId"],params["colorId"])
-      //   }
-      //   else if(params["colorId"]){
-      //     this.getCarsByColor(params["colorId"]);
-      //   }
-      //   else if(params["brandId"]){
-      //     this.getCarsByBrand(params["brandId"])
-      //
-      //   }
-      //   else{
-      //     this.getCars()
-      //   }
-   // })
-    this.houseService.getAll().subscribe(response => {
+   this.activatedRoute.params.subscribe(params => {
+        // if(params["brandId"] && params["colorId"]){
+        //   this.getCarsBySelect(params["brandId"],params["colorId"])
+        // }
+        //else 
+
+
+        if(params["bedroomId"]){
+          this.getHousesByBedrooms(params["bedroomId"]);
+        }
+
+
+        // else if(params["brandId"]){
+        //   this.getCarsByBrand(params["brandId"])
+      
+        // }
+        else{
+          this.getAllHouses()
+        }
+
+
+        
+   })
+    this.houseService.getAllHouses().subscribe(response => {
       this.houses = response as any;
       this.dataLoaded = true;
     })
   }
 
-  // getA() {
-  //   this.houseService.getAll().subscribe(response => {
-  //     this.houses = response.data;
-  //     this.dataLoaded = true;
-  //   })
-  // }
+
+  getAllHouses() {
+    this.houseService.getAllHouses().subscribe(response => {
+      this.houses = response.data;
+      this.dataLoaded = true;
+    })
+  }
+
 
   // getCarsByBrand(brandId:number){
   //   this.houseService.getHousesByBrand(brandId).subscribe(response=>{
@@ -59,12 +69,13 @@ export class HouseComponent implements OnInit {
   //   })
   // }
 
-  // getCarsByColor(colorId:number){
-  //   this.houseService.getHousesByColor(colorId).subscribe(response=>{
-  //     this.houses=response.data;
-  //     this.dataLoaded=true;
-  //   })
-  // }
+
+  getHousesByBedrooms(bedroomId:string){
+     this.houses  =  this.houseService.getHousesByBedrooms(bedroomId);
+      this.dataLoaded=true;
+  }
+
+
 
   // getCarsBySelect(brandId:number, colorId:number){
   //   this.houseService.getHousesBySelect(brandId,colorId).subscribe(response=>{
