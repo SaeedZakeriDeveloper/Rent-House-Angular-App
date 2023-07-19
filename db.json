@@ -48,7 +48,7 @@
       "owner": "David",
       "builtYear": "2015",
       "description": "...",
-      "imagePath": ""
+      "imagePath": "../../../assets/1.jpg"
     },
     {
       "id": 2,
@@ -61,7 +61,7 @@
       "owner": "David",
       "builtYear": "2015",
       "description": "...",
-      "imagePath": ""
+      "imagePath":"../../../assets/2.jpg"
     }
   ]
 }

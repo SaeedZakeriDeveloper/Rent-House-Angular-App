@@ -11,7 +11,7 @@ import {DashboardHouses} from '../models/dashboard-house';
   providedIn: 'root'
 })
 export class HouseService {
-
+  
   apiUrl = "http://localhost:3000/";
 
   constructor(private httpClient: HttpClient) {
@@ -37,10 +37,15 @@ export class HouseService {
     return this.httpClient.delete<ResponseModel>(this.apiUrl + "house/" + id);
   }
 
-  // getHousesByBrand(brandId:number):Observable<ListResponseModel<House>>{
-  //   let newPath= this.apiUrl+"houses/getbybrand?brandId="+brandId
-  //   return this.httpClient.get<ListResponseModel<House>>(newPath)
-  // }
+  getHousesByBedrooms(bedrooms:string){
+    this.getAll().subscribe(res =>{
+     return (res as any).filter((house: any) => house.bedrooms == bedrooms);
+    });
+  }
+
+
+
+
   // getHousesByColor(colorId:number):Observable<ListResponseModel<House>>{
   //   let newPath= this.apiUrl+"houses/getbycolor?colorId="+colorId
   //   return this.httpClient.get<ListResponseModel<House>>(newPath)
@@ -55,7 +60,7 @@ export class HouseService {
   //   return this.httpClient
   //     .get<ListResponseModel<House>>(newPath);
   // }
-  //
+  
   // getAllHouseDetail(){
   //   let newPath = this.apiUrl + "houses/getallhousedetail"
   //   return this.httpClient

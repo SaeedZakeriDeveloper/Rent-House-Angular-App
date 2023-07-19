@@ -12,9 +12,11 @@ export class HouseComponent implements OnInit {
 
   houses: House[] = [];
   dataLoaded = false
-  imageUrl = "https://localhost:44388";
+  //imageUrl = "https://localhost:44388";
   filter: string = "";
 
+
+  
   constructor(
     private houseService: HouseService,
     private activatedRoute: ActivatedRoute,
@@ -22,7 +24,7 @@ export class HouseComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(params => {
+   // this.activatedRoute.params.subscribe(params => {
       //   if(params["brandId"] && params["colorId"]){
       //     this.getCarsBySelect(params["brandId"],params["colorId"])
       //   }
@@ -36,19 +38,19 @@ export class HouseComponent implements OnInit {
       //   else{
       //     this.getCars()
       //   }
-    })
+   // })
     this.houseService.getAll().subscribe(response => {
       this.houses = response as any;
       this.dataLoaded = true;
     })
   }
 
-  getCars() {
-    this.houseService.getAll().subscribe(response => {
-      this.houses = response.data;
-      this.dataLoaded = true;
-    })
-  }
+  // getA() {
+  //   this.houseService.getAll().subscribe(response => {
+  //     this.houses = response.data;
+  //     this.dataLoaded = true;
+  //   })
+  // }
 
   // getCarsByBrand(brandId:number){
   //   this.houseService.getHousesByBrand(brandId).subscribe(response=>{
