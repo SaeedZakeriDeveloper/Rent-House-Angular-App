@@ -3,8 +3,10 @@
     <div class="col-md-3">
         <app-bedroom></app-bedroom>
         <app-price></app-price>
-<!--      <app-color></app-color>-->
-    </div>
+
+
+
+      </div>
     <div class="col-md-9">
       <div class="mb-3" >
         <label for="filter" class="form-label"></label>
@@ -12,7 +14,7 @@
                placeholder="What are you looking for?">
       </div>
 
-<!--      <app-car-filter></app-car-filter>-->
+     <app-house-filter></app-house-filter>
       <div class="row" *ngIf="dataLoaded==true">
 <!--        <div *ngFor="let house of houses |carFilter:carFilter" class="card m-2 " style="width: 267px; ">-->
         <div *ngFor="let house of houses" class="card m-2 " style="width: 267px; ">
@@ -36,7 +38,6 @@
             </section>
           </div>
         </div>
-
         
       </div>
 

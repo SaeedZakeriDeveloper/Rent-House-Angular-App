@@ -1,0 +1,20 @@
+<div class="row mb-2">
+    <div class="col-md-4">
+        <select [(ngModel)]="bedroomIdFilter"  class="form-select" aria-label="Default select example">
+            <option [value]="0" selected="0">all</option>
+            <option *ngFor="let bedroom of bedrooms" [value]="bedroom.id" selected="{{selectedBedroom(bedroom.id)}}">{{bedroom.title}}</option>
+          </select>
+    </div>
+    <div class="col-md-4">
+        <select [(ngModel)]="priceIdFilter" class="form-select" aria-label="Default select example">
+            <option [value]="0" selected="0">all</option>
+            <option *ngFor="let price of prices" [value]="price.id" selected="{{selectedPrice(price.id)}}">{{price.title}}</option>
+          </select>
+    </div>
+    <div class="col-md-2">
+        <a routerLink="/houses/filter/{{bedroomIdFilter}}/{{priceIdFilter}}" class="btn btn-success">Filter</a>
+        </div>
+        <div class="col-md-2">
+            <a routerLink="/houses" class="btn btn-danger">Clean</a>
+        </div>
+</div>

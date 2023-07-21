@@ -41,9 +41,8 @@ export class HouseComponent implements OnInit {
           this.dataLoaded = true;
         })
       }
-      
 
-      if (params["priceId"]) {
+      else if (params["priceId"]) {
         let result: Price
         this.priceService.getPriceById(+params["priceId"]).subscribe(res => {
           result = res as any
@@ -52,9 +51,6 @@ export class HouseComponent implements OnInit {
             this.dataLoaded = true;
           })
         })
-
-
-
       }
 
       else {
