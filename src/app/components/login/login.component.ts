@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/home']);
       }
       ,responseError=>{
-        
+
         this.toasterService.error(responseError.error,"Mistake!")
       })
     }
@@ -55,6 +55,10 @@ export class LoginComponent implements OnInit {
       this.toasterService.error("Please fill in all fields","Attention!")
     }
     }
-   
+
+  }
+
+  loginBtnClick(){
+    document.getElementById('loginModal').style.display='none';
   }
 }

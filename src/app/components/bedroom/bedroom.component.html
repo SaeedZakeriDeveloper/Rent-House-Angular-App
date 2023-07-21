@@ -3,21 +3,13 @@
 </div> -->
 
 <div>
-    <label for="bedroomFilter" class="form-label"></label>
-
-    <input type="text" [(ngModel)]="bedroomFilter" class="form-control" id="bedroomFilter"
-        placeholder="enter search phrase">
-
+  <label for="bedroomFilter" class="form-label"></label>
+  <input type="text" [(ngModel)]="bedroomFilter" class="form-control" id="bedroomFilter"
+         placeholder="enter search phrase">
 </div>
 
 <ul *ngIf="dataLoaded == true" class="list-group">
-    <li routerLink="/house" [ngClass]="getAllBedroomClass()" aria-current="true">
-
-        All Bedrooms
-
-    </li>
-    <li (click)="setCurrentBedroom(bedroom)" *ngFor="let bedroom of bedrooms  |bedroomFilter:bedroomFilter"
-        routerLink="/house/bedroom/{{bedroom.id}}" [class]="getCurrentBedroomClass(bedroom)">{{bedroom.title}}
-    </li>
-
+  <li (click)="setCurrentBedroom(bedroom)" *ngFor="let bedroom of bedrooms|bedroomFilter:bedroomFilter"
+      [class]="getCurrentBedroomClass(bedroom)">{{bedroom.title}}
+  </li>
 </ul>

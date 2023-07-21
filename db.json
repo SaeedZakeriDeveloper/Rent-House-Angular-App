@@ -48,9 +48,9 @@
       "owner": "Alice",
       "builtYear": "2010",
       "description": "A cozy 1-bedroom apartment with a great view...",
-      "imagePath": "../../../assets/bedroom1_1.jpg"
+      "imagePath": "../../../assets/1.jpg"
     },
-    
+
     {
       "id": 2,
       "code": 1002,
@@ -62,9 +62,9 @@
       "owner": "Bob",
       "builtYear": "2015",
       "description": "A stylish 1-bedroom apartment in a prime location...",
-      "imagePath": "../../../assets/bedroom1_2.jpg"
+      "imagePath": "../../../assets/2.jpg"
     },
-    
+
     {
       "id": 3,
       "code": 1003,
@@ -76,9 +76,9 @@
       "owner": "Charlie",
       "builtYear": "2012",
       "description": "A modern 1-bedroom apartment with top-notch amenities...",
-      "imagePath": "../../../assets/bedroom1_3.jpg"
+      "imagePath": "../../../assets/3.jpg"
     },
-    
+
    {
       "id": 4,
       "code": 1004,
@@ -90,9 +90,9 @@
       "owner": "David",
       "builtYear": "2018",
       "description": "A charming 1-bedroom apartment surrounded by nature...",
-      "imagePath": "../../../assets/bedroom1_4.jpg"
+      "imagePath": "../../../assets/4.jpg"
     },
-    
+
     {
       "id": 5,
       "code": 2001,
@@ -104,9 +104,9 @@
       "owner": "Emma",
       "builtYear": "2011",
       "description": "A spacious 2-bedroom apartment with a lovely balcony...",
-      "imagePath": "../../../assets/bedroom2_1.jpg"
+      "imagePath": "../../../assets/5.jpg"
     },
-    
+
     {
       "id": 6,
       "code": 2002,
@@ -118,9 +118,9 @@
       "owner": "Frank",
       "builtYear": "2014",
       "description": "A modern 2-bedroom apartment with two bathrooms...",
-      "imagePath": "../../../assets/bedroom2_2.jpg"
+      "imagePath": "../../../assets/6.jpg"
     },
-    
+
     {
       "id": 7,
       "code": 2003,
@@ -132,9 +132,9 @@
       "owner": "Grace",
       "builtYear": "2013",
       "description": "A cozy 2-bedroom apartment with natural lighting...",
-      "imagePath": "../../../assets/bedroom2_3.jpg"
+      "imagePath": "../../../assets/7.jpg"
     },
-    
+
     {
       "id": 8,
       "code": 2004,
@@ -146,9 +146,9 @@
       "owner": "Henry",
       "builtYear": "2016",
       "description": "A comfortable 2-bedroom apartment with modern amenities...",
-      "imagePath": "../../../assets/bedroom2_4.jpg"
+      "imagePath": "../../../assets/8.jpg"
     },
-    
+
     {
       "id": 9,
       "code": 3001,
@@ -160,9 +160,9 @@
       "owner": "Isabella",
       "builtYear": "2012",
       "description": "A spacious 3-bedroom apartment with two bathrooms...",
-      "imagePath": "../../../assets/bedroom3_1.jpg"
+      "imagePath": "../../../assets/9.jpg"
     },
-    
+
      {
       "id": 10,
       "code": 3002,
@@ -174,9 +174,9 @@
       "owner": "Jack",
       "builtYear": "2013",
       "description": "A modern 3-bedroom apartment with a beautiful view...",
-      "imagePath": "../../../assets/bedroom3_2.jpg"
+      "imagePath": "../../../assets/10.jpg"
     },
-    
+
     {
       "id": 11,
       "code": 3003,
@@ -188,9 +188,9 @@
       "owner": "Kate",
       "builtYear": "2011",
       "description": "A luxurious 3-bedroom apartment with high-end finishes...",
-      "imagePath": "../../../assets/bedroom3_3.jpg"
+      "imagePath": "../../../assets/11.jpg"
     },
-    
+
     {
       "id": 12,
       "code": 3004,
@@ -202,11 +202,14 @@
       "owner": "Liam",
       "builtYear": "2014",
       "description": "A stylish 3-bedroom apartment with modern design...",
-      "imagePath": "../../../assets/bedroom3_4.jpg"
+      "imagePath": "../../../assets/12.jpg"
     }
   ],
-  
+
   "bedroom":[
+    { "id" : 0,
+      "title" : "All Bedrooms"
+    },
     { "id" : 1,
       "title" : "1 bedroom"
     },
@@ -219,9 +222,14 @@
     { "id" : 4,
     "title" :   "4 bedrooms"
     }
-
   ],
   "price" :[
+    {
+      "id" : 0 ,
+      "title": "All Prices",
+      "from" : 0,
+      "to" : 1000
+    },
     {
       "id" : 1 ,
       "title" : "From $0 to $200",
@@ -252,8 +260,8 @@
       "from" : 800,
       "to" : 1000
     }
-    
-    
+
+
   ]
 
 }

@@ -90,6 +90,7 @@ import { BedroomComponent } from './components/bedroom/bedroom.component';
 import { BedroomFilterPipe } from './pipes/bedroom-filter.pipe';
 import { PriceComponent } from './components/price/price.component';
 import { PriceFilterPipe } from './pipes/price-filter.pipe';
+import { HouseFilterComponent } from './components/house-filter/house-filter.component';
 //import { HomeComponent } from './components/home/home/home.components';
 //import { UserComponent } from './components/auth/user-profil/user-profil.components';
 //import { UsereditComponent } from './components/auth/user-profil/useredit/useredit.components';
@@ -134,6 +135,7 @@ export function tokenGetter() {
     BedroomFilterPipe,
     PriceComponent,
     PriceFilterPipe,
+    HouseFilterComponent,
     //AdminDashboardComponent,
     //ColorsDashboardComponent,
     //ColorEditComponent,

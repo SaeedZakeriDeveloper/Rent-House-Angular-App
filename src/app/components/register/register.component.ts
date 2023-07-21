@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
   submitted: boolean = false;
   dataLoaded: boolean = false;
 
-  // f: any;
+  // fg: any;
 
   constructor(
     //private  formBuilder:FormBuilder,
@@ -25,8 +25,8 @@ export class RegisterComponent implements OnInit {
   ) {
   }
 
-  get f() {
-    return this.registerForm.controls
+  get fg() {
+    return this.registerForm.controls;
   }    //property get va hatman bayad ye meghdari return kone yani age return nakone error mid,,, methood get hastesh ke raftaresh shabihe proprtyie
 
 
@@ -49,9 +49,8 @@ export class RegisterComponent implements OnInit {
       password: new FormControl('', [Validators.required, Validators.minLength(8)])
     });
 
-    // this.f = this.registerForm.controls;
+    // this.fg = this.registerForm.controls;
   }
-
 
   register() {
     if (this.registerForm.valid) {
@@ -64,7 +63,7 @@ export class RegisterComponent implements OnInit {
 
           if (responseError.error.ValidationErrors?.length > 0) {
 
-            this.toasterService.error(responseError.error, "Worng")
+            this.toasterService.error(responseError.error, "Wrong")
           }
 
         })
@@ -72,9 +71,8 @@ export class RegisterComponent implements OnInit {
       this.toasterService.error("Please complete all required fields.", "Attention!")
     }
   }
+
+  registerBtnClick(){
+    document.getElementById('registerModal').style.display='none';
+  }
 }
-
-
-
-
-

@@ -72,4 +72,12 @@ export class NavComponent implements OnInit {
     this.toasterService.success("Checked Out","Successful")
   }
 
+  registerBtnClick(){
+    document.getElementById('registerModal').style.display='flex';
+  }
+
+  loginBtnClick(){
+    document.getElementById('loginModal').style.display='flex';
+  }
+
 }

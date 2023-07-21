@@ -1,5 +1,5 @@
 
-.zero-raduis{
+.zero-radius{
 	border-radius: 0px !important;
 }
 
@@ -26,7 +26,7 @@ h2 {
 .wrapper {
   display: flex;
   align-items: center;
-  flex-direction: column; 
+  flex-direction: column;
   justify-content: center;
   width: 100%;
   min-height: 50%;
@@ -242,7 +242,7 @@ input[type=password]:placeholder, input[type=email]:placeholder {
 
 *:focus {
     outline: none;
-} 
+}
 
 #icon {
   width:30%;

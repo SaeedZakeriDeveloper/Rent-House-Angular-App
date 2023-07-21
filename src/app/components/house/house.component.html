@@ -1,18 +1,17 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-        <app-bedroom></app-bedroom>
-        <app-price></app-price>
-<!--      <app-color></app-color>-->
-    </div>
+        <app-bedroom (onClick)="onBedroomClick($event)"></app-bedroom>
+        <app-price (onClick)="onPriceClick($event)"></app-price>
+      </div>
     <div class="col-md-9">
       <div class="mb-3" >
         <label for="filter" class="form-label"></label>
-        <input type="text" [(ngModel)]="filter" class="form-control" id="filter"
-               placeholder="What are you looking for?">
+        <input type="text" [(ngModel)]="searchPanelFilter" class="form-control" id="filter"
+               placeholder="What are you looking for?" (change)="searchPanelFilterChange(searchPanelFilter)">
       </div>
 
-<!--      <app-car-filter></app-car-filter>-->
+     <app-house-filter></app-house-filter>
       <div class="row" *ngIf="dataLoaded==true">
 <!--        <div *ngFor="let house of houses |carFilter:carFilter" class="card m-2 " style="width: 267px; ">-->
         <div *ngFor="let house of houses" class="card m-2 " style="width: 267px; ">
@@ -37,7 +36,6 @@
           </div>
         </div>
 
-        
       </div>
 
     </div>
@@ -45,3 +43,9 @@
 </div>
 
 <app-footer></app-footer>
+
+<!--<dx-load-indicator-->
+<!--  [(visible)]="isLoadIndicatorVisible"-->
+<!--  [height]="40"-->
+<!--  [width]="40">-->
+<!--</dx-load-indicator>-->

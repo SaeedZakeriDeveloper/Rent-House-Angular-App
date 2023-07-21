@@ -1,44 +1,40 @@
-<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-<!------ Include the above in your HEAD tag ---------->
+<div class="wrapper fadeInDown zero-radius" id="registerModal">
+  <div id="formContent">
+    <div class="d-flex justify-content-end px-3">
+      <button class="btn border-0" (click)="registerBtnClick()">&times;</button>
+    </div>
+    <div class="fadeIn first">
+      <h2 class="my-5">register</h2>
+    </div>
 
-<div class="wrapper fadeInDown zero-raduis">
-
-	<div id="formContent">
-		<!-- Tabs Titles -->
-
-		<!-- Icon -->
-		<div class="fadeIn first">
-			<!----- <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" /> -->
-			<h2 class="my-5">register</h2>
-		</div>
-
-		<!-- Login Form -->
-		<form  [formGroup]="registerForm">
-
-			<input formControlName="firstName" type="text" id="firstName" class="fadeIn second zero-raduis" name="firstName" placeholder="first name">
-			<div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-                    <div *ngIf="f.firstName.errors.required">frist name is required.</div>
-			</div>
-			<input formControlName="lastName" type="text" id="lastName" class="fadeIn second zero-raduis" name="lastName" placeholder="last name">
-			<div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-				<div *ngIf="f.lastName.errors.required">last name is required.</div>
-			</div>
-			<input formControlName="email" type="email" id="email" class="fadeIn second zero-raduis" name="email" placeholder="info@example.com">
-			<div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-				<div *ngIf="f.email.errors.required">Email is required</div>
-			</div>
-			<input formControlName="password" type="password" id="password" class="fadeIn third zero-raduis" name="register" placeholder="password">
-			<div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-				<div *ngIf="f.password.errors.required">Password is required</div>
-				<div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
-			</div>
-				<div id="formFooter">
-				</div>
-			<input  (click)="register()" type="submit" class="fadeIn fourth zero-raduis" value="register">
-			<h2>Are you already registered?</h2>
-			<input routerLink="/login" type="button" class="fadeIn fourth zero-raduis pc" value="sign in">
-		</form>
-	</div>
+    <!-- Login Form -->
+    <form [formGroup]="registerForm">
+      <input formControlName="firstName" type="text" id="firstName" class="fadeIn second zero-radius" name="firstName"
+             placeholder="first name">
+      <div *ngIf="submitted && fg.firstName.errors" class="invalid-feedback">
+        <div *ngIf="fg.firstName.errors.required">first name is required.</div>
+      </div>
+      <input formControlName="lastName" type="text" id="lastName" class="fadeIn second zero-radius" name="lastName"
+             placeholder="last name">
+      <div *ngIf="submitted && fg.lastName.errors" class="invalid-feedback">
+        <div *ngIf="fg.lastName.errors.required">last name is required.</div>
+      </div>
+      <input formControlName="email" type="email" id="email" class="fadeIn second zero-radius" name="email"
+             placeholder="info@example.com">
+      <div *ngIf="submitted && fg.email.errors" class="invalid-feedback">
+        <div *ngIf="fg.email.errors.required">Email is required</div>
+      </div>
+      <input formControlName="password" type="password" id="password" class="fadeIn third zero-radius" name="register"
+             placeholder="password">
+      <div *ngIf="submitted && fg.password.errors" class="invalid-feedback">
+        <div *ngIf="fg.password.errors.required">Password is required</div>
+        <div *ngIf="fg.password.errors.minlength">Password must be at least 6 characters</div>
+      </div>
+      <div id="formFooter">
+      </div>
+      <input (click)="register()" type="submit" class="fadeIn fourth zero-radius" value="register">
+      <h2>Are you already registered?</h2>
+      <input routerLink="/login" type="button" class="fadeIn fourth zero-radius pc" value="sign in">
+    </form>
+  </div>
 </div>

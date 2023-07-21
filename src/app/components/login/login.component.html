@@ -1,7 +1,8 @@
-
-
-<div class="wrapper fadeInDown zero-raduis">
+<div class="wrapper fadeInDown zero-radius" id="loginModal">
 	<div id="formContent">
+    <div class="d-flex justify-content-end px-3">
+      <button class="btn border-0" (click)="loginBtnClick()">&times;</button>
+    </div>
 		<!-- Icon -->
 		<div class="fadeIn first">
 			<h2 class="my-5">Login</h2>
@@ -9,14 +10,14 @@
 
 		<!-- Login Form -->
 		<form [formGroup]="loginForm">
-			<input formControlName="email" type="email" id="email" class="fadeIn second zero-raduis" name="email" placeholder="name@example.com">
-			<input formControlName="password" type="password" id="password" class="fadeIn third zero-raduis" name="login" placeholder="password">
+			<input formControlName="email" type="email" id="email" class="fadeIn second zero-radius" name="email" placeholder="name@example.com">
+			<input formControlName="password" type="password" id="password" class="fadeIn third zero-radius" name="login" placeholder="password">
 			<div id="formFooter">
 				<a class="underlineHover">Forgot password?</a>
 			</div>
-			<input type="submit"  routerLinkActive="router-link-active"  (click)="login()" class="fadeIn fourth zero-raduis" value="Login">
+			<input type="submit"  routerLinkActive="router-link-active"  (click)="login()" class="fadeIn fourth zero-radius" value="Login">
 			<h2>Don't have an account?</h2>
-			<input routerLink="/register" type="button" class="fadeIn fourth zero-raduis pc" value="Register">
+			<input routerLink="/register" type="button" class="fadeIn fourth zero-radius pc" value="Register">
 		</form>
 
 	</div>
