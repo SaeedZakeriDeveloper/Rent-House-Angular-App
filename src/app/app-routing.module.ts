@@ -5,6 +5,7 @@ import {RegisterComponent} from './components/register/register.component';
 import {AdminDashboardComponent} from "./components/admin-dashboard/admin-dashboard.component";
 import {HouseComponent} from "./components/house/house.component";
 import {HomeComponent} from './components/home/home.component';
+import { DxLoadIndicatorModule } from 'devextreme-angular';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -15,7 +16,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),
+    DxLoadIndicatorModule
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

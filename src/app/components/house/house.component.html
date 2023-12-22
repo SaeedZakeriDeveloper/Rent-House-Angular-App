@@ -10,11 +10,8 @@
         <input type="text" [(ngModel)]="searchPanelFilter" class="form-control" id="filter"
                placeholder="What are you looking for?" (change)="searchPanelFilterChange(searchPanelFilter)">
       </div>
-
-     <app-house-filter></app-house-filter>
       <div class="row" *ngIf="dataLoaded==true">
-<!--        <div *ngFor="let house of houses |carFilter:carFilter" class="card m-2 " style="width: 267px; ">-->
-        <div *ngFor="let house of houses" class="card m-2 " style="width: 267px; ">
+        <div *ngFor="let house of houses; trackBy:trackItem" class="card m-2 " style="width: 267px; ">
           <img  src="{{house.imagePath}}" alt="{{house.imagePath}}" class="card-img-top" width="320" height="200" >
           <div class="card-body">
             <h5 class="card-title d-flex justify-content-center">{{house.code}}</h5>
@@ -44,8 +41,9 @@
 
 <app-footer></app-footer>
 
-<!--<dx-load-indicator-->
-<!--  [(visible)]="isLoadIndicatorVisible"-->
-<!--  [height]="40"-->
-<!--  [width]="40">-->
-<!--</dx-load-indicator>-->
+<dx-load-indicator
+  [(visible)]="isLoading"
+  [height]="140"
+  [width]="140"
+  [elementAttr]="{ style: 'position: absolute; top: calc(50vh - 70px); left: calc(50vw - 70px);' }">
+</dx-load-indicator>

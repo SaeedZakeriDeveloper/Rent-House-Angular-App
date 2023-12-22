@@ -90,7 +90,7 @@ import { BedroomComponent } from './components/bedroom/bedroom.component';
 import { BedroomFilterPipe } from './pipes/bedroom-filter.pipe';
 import { PriceComponent } from './components/price/price.component';
 import { PriceFilterPipe } from './pipes/price-filter.pipe';
-import { HouseFilterComponent } from './components/house-filter/house-filter.component';
+import {DxLoadIndicatorModule} from "devextreme-angular";
 //import { HomeComponent } from './components/home/home/home.components';
 //import { UserComponent } from './components/auth/user-profil/user-profil.components';
 //import { UsereditComponent } from './components/auth/user-profil/useredit/useredit.components';
@@ -135,7 +135,6 @@ export function tokenGetter() {
     BedroomFilterPipe,
     PriceComponent,
     PriceFilterPipe,
-    HouseFilterComponent,
     //AdminDashboardComponent,
     //ColorsDashboardComponent,
     //ColorEditComponent,
@@ -151,27 +150,28 @@ export function tokenGetter() {
 
 
   ],
-  imports: [
+    imports: [
 
-    BrowserModule,
-    AppRoutingModule,
+        BrowserModule,
+        AppRoutingModule,
 
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,  //add shode baraye form module
-    BrowserAnimationsModule,
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,  //add shode baraye form module
+        BrowserAnimationsModule,
 
-    //NgMultiSelectDropDownModule.forRoot(),
-    ToastrModule.forRoot({
-      positionClass:"toast-bottom-right"
-    }),
-    JwtModule.forRoot({
-      config:{
-        tokenGetter: tokenGetter,
-      }
-    }),
+        //NgMultiSelectDropDownModule.forRoot(),
+        ToastrModule.forRoot({
+            positionClass: "toast-bottom-right"
+        }),
+        JwtModule.forRoot({
+            config: {
+                tokenGetter: tokenGetter,
+            }
+        }),
+        DxLoadIndicatorModule,
 
-  ],
+    ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}
   ],
