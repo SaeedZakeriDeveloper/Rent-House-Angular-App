@@ -8,10 +8,10 @@
       <div class="mb-3" >
         <label for="filter" class="form-label"></label>
         <input type="text" [(ngModel)]="searchPanelFilter" class="form-control" id="filter"
-               placeholder="What are you looking for?" (change)="searchPanelFilterChange(searchPanelFilter)">
+               placeholder="What are you looking for?" (input)="searchPanelFilterChange(searchPanelFilter)">
       </div>
-      <div class="row" *ngIf="dataLoaded==true">
-        <div *ngFor="let house of houses; trackBy:trackItem" class="card m-2 " style="width: 267px; ">
+      <div class="row" *ngIf="dataLoaded==true" >
+        <div *ngFor="let house of houses;" class="card m-2" style="width: 267px; ">
           <img  src="{{house.imagePath}}" alt="{{house.imagePath}}" class="card-img-top" width="320" height="200" >
           <div class="card-body">
             <h5 class="card-title d-flex justify-content-center">{{house.code}}</h5>

@@ -10,7 +10,7 @@ import {Price} from 'src/app/models/price';
   templateUrl: './house.component.html',
   styleUrls: ['./house.component.css']
 })
-export class HouseComponent implements OnInit   {
+export class HouseComponent implements OnInit {
 
   allHouses: House[] = [];
   houses: House[] = [];
@@ -26,13 +26,8 @@ export class HouseComponent implements OnInit   {
   isLoading: boolean = false;
 
   constructor(
-    private houseService: HouseService,
-    private changeDetectorRef: ChangeDetectorRef
+    private houseService: HouseService
   ) {
-  }
-
-  public trackItem (index: number, item: House) {
-    return item.id;
   }
 
   onBedroomClick(id: number) {
@@ -40,13 +35,41 @@ export class HouseComponent implements OnInit   {
     window.setTimeout(() => {
       this.bedroomFilter = id;
       if (id != 0 && this.priceFilter.id == 0) {
-        this.houses = this.allHouses.filter((x: House) => x.bedrooms == id);
+        this.houses = this.allHouses.filter((x: House) => x.bedrooms == id
+        &&
+          (x.code.toString().includes(this.searchPanelFilter) ||
+            x.description.toString().includes(this.searchPanelFilter) ||
+            x.size.toString().includes(this.searchPanelFilter) ||
+            x.bedrooms.toString().includes(this.searchPanelFilter) ||
+            x.bathrooms.toString().includes(this.searchPanelFilter) ||
+            x.price.toString().includes(this.searchPanelFilter)));
       } else if (id != 0 && this.priceFilter.id != 0) {
-        this.houses = this.allHouses.filter((x: House) => x.bedrooms == id && x.price > this.priceFilter.from && x.price < this.priceFilter.to);
+        this.houses = this.allHouses.filter((x: House) => x.bedrooms == id
+          &&
+          x.price > this.priceFilter.from && x.price < this.priceFilter.to
+          &&
+          (x.code.toString().includes(this.searchPanelFilter) ||
+            x.description.toString().includes(this.searchPanelFilter) ||
+            x.size.toString().includes(this.searchPanelFilter) ||
+            x.bedrooms.toString().includes(this.searchPanelFilter) ||
+            x.bathrooms.toString().includes(this.searchPanelFilter) ||
+            x.price.toString().includes(this.searchPanelFilter)));
       } else if (id == 0 && this.priceFilter.id != 0) {
-        this.houses = this.allHouses.filter((x: House) => x.price > this.priceFilter.from && x.price < this.priceFilter.to);
+        this.houses = this.allHouses.filter((x: House) => x.price > this.priceFilter.from && x.price < this.priceFilter.to
+          &&
+          (x.code.toString().includes(this.searchPanelFilter) ||
+            x.description.toString().includes(this.searchPanelFilter) ||
+            x.size.toString().includes(this.searchPanelFilter) ||
+            x.bedrooms.toString().includes(this.searchPanelFilter) ||
+            x.bathrooms.toString().includes(this.searchPanelFilter) ||
+            x.price.toString().includes(this.searchPanelFilter)));
       } else {
-        this.houses = this.allHouses;
+        this.houses = this.allHouses.filter(x=> x.code.toString().includes(this.searchPanelFilter) ||
+          x.description.toString().includes(this.searchPanelFilter) ||
+          x.size.toString().includes(this.searchPanelFilter) ||
+          x.bedrooms.toString().includes(this.searchPanelFilter) ||
+          x.bathrooms.toString().includes(this.searchPanelFilter) ||
+          x.price.toString().includes(this.searchPanelFilter));
       }
       this.isLoading = false;
     }, 900);
@@ -57,31 +80,85 @@ export class HouseComponent implements OnInit   {
     window.setTimeout(() => {
       this.priceFilter = price;
       if (price.id != 0 && this.bedroomFilter == 0) {
-        this.houses = this.allHouses.filter((x: House) => x.price > price.from && x.price < price.to);
+        this.houses = this.allHouses.filter((x: House) => x.price > price.from && x.price < price.to
+        && (x.code.toString().includes(this.searchPanelFilter) ||
+            x.description.toString().includes(this.searchPanelFilter) ||
+            x.size.toString().includes(this.searchPanelFilter) ||
+            x.bedrooms.toString().includes(this.searchPanelFilter) ||
+            x.bathrooms.toString().includes(this.searchPanelFilter) ||
+            x.price.toString().includes(this.searchPanelFilter)));
       } else if (price.id != 0 && this.bedroomFilter != 0) {
-        this.houses = this.allHouses.filter((x: House) => x.bedrooms == this.bedroomFilter && x.price > this.priceFilter.from && x.price < this.priceFilter.to);
+        this.houses = this.allHouses.filter((x: House) => x.bedrooms == this.bedroomFilter
+          && x.price > this.priceFilter.from && x.price < this.priceFilter.to
+          &&  (x.code.toString().includes(this.searchPanelFilter) ||
+            x.description.toString().includes(this.searchPanelFilter) ||
+            x.size.toString().includes(this.searchPanelFilter) ||
+            x.bedrooms.toString().includes(this.searchPanelFilter) ||
+            x.bathrooms.toString().includes(this.searchPanelFilter) ||
+            x.price.toString().includes(this.searchPanelFilter)));
       } else if (price.id == 0 && this.bedroomFilter != 0) {
-        this.houses = this.allHouses.filter((x: House) => x.bedrooms == this.bedroomFilter);
+        this.houses = this.allHouses.filter((x: House) => x.bedrooms == this.bedroomFilter
+          && (x.code.toString().includes(this.searchPanelFilter) ||
+          x.description.toString().includes(this.searchPanelFilter) ||
+          x.size.toString().includes(this.searchPanelFilter) ||
+          x.bedrooms.toString().includes(this.searchPanelFilter) ||
+          x.bathrooms.toString().includes(this.searchPanelFilter) ||
+          x.price.toString().includes(this.searchPanelFilter)));
       } else {
-        this.houses = this.allHouses;
+        this.houses = this.allHouses.filter(x=> x.code.toString().includes(this.searchPanelFilter) ||
+          x.description.toString().includes(this.searchPanelFilter) ||
+          x.size.toString().includes(this.searchPanelFilter) ||
+          x.bedrooms.toString().includes(this.searchPanelFilter) ||
+          x.bathrooms.toString().includes(this.searchPanelFilter) ||
+          x.price.toString().includes(this.searchPanelFilter));
       }
       this.isLoading = false;
-    }, 1000);
+    }, 900);
   }
 
   searchPanelFilterChange(value: string) {
     this.isLoading = true;
     window.setTimeout(() => {
-      this.houses = this.allHouses.filter((x: House) =>
-        x.code.toString().includes(value) ||
-        x.description.toString().includes(value) ||
-        x.size.toString().includes(value) ||
-        x.bedrooms.toString().includes(value) ||
-        x.bathrooms.toString().includes(value) ||
-        x.price.toString().includes(value));
+      if (this.bedroomFilter != 0 && this.priceFilter.id == 0) {
+        this.houses = this.allHouses.filter((x: House) =>
+          (x.code.toString().includes(value) ||
+            x.description.toString().includes(value) ||
+            x.size.toString().includes(value) ||
+            x.bedrooms.toString().includes(value) ||
+            x.bathrooms.toString().includes(value) ||
+            x.price.toString().includes(value))
+          && x.bedrooms == this.bedroomFilter);
+      } else if (this.bedroomFilter != 0 && this.priceFilter.id != 0) {
+        this.houses = this.allHouses.filter((x: House) =>
+          (x.code.toString().includes(value) ||
+            x.description.toString().includes(value) ||
+            x.size.toString().includes(value) ||
+            x.bedrooms.toString().includes(value) ||
+            x.bathrooms.toString().includes(value) ||
+            x.price.toString().includes(value))
+          && x.bedrooms == this.bedroomFilter
+          && x.price > this.priceFilter.from && x.price < this.priceFilter.to);
+      } else if (this.bedroomFilter == 0 && this.priceFilter.id != 0) {
+        this.houses = this.allHouses.filter((x: House) =>
+          (x.code.toString().includes(value) ||
+            x.description.toString().includes(value) ||
+            x.size.toString().includes(value) ||
+            x.bedrooms.toString().includes(value) ||
+            x.bathrooms.toString().includes(value) ||
+            x.price.toString().includes(value))
+          && x.price > this.priceFilter.from && x.price < this.priceFilter.to);
+      } else {
+        this.houses = this.allHouses.filter((x: House) =>
+          x.code.toString().includes(value) ||
+          x.description.toString().includes(value) ||
+          x.size.toString().includes(value) ||
+          x.bedrooms.toString().includes(value) ||
+          x.bathrooms.toString().includes(value) ||
+          x.price.toString().includes(value));
+      }
+
       this.isLoading = false;
-      this.changeDetectorRef.detectChanges();
-    }, 1000);
+    }, 900);
   }
 
   ngOnInit(): void {
@@ -92,8 +169,6 @@ export class HouseComponent implements OnInit   {
     })
 
   }
-
-
 
 
   // getCarsByBrand(brandId:number){
