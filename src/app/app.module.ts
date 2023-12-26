@@ -90,7 +90,7 @@ import { BedroomComponent } from './components/bedroom/bedroom.component';
 import { BedroomFilterPipe } from './pipes/bedroom-filter.pipe';
 import { PriceComponent } from './components/price/price.component';
 import { PriceFilterPipe } from './pipes/price-filter.pipe';
-import {DxLoadIndicatorModule} from "devextreme-angular";
+import {DxDataGridModule, DxLoadIndicatorModule} from "devextreme-angular";
 //import { HomeComponent } from './components/home/home/home.components';
 //import { UserComponent } from './components/auth/user-profil/user-profil.components';
 //import { UsereditComponent } from './components/auth/user-profil/useredit/useredit.components';
@@ -170,7 +170,7 @@ export function tokenGetter() {
             }
         }),
         DxLoadIndicatorModule,
-
+DxDataGridModule
     ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}

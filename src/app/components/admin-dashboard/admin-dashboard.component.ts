@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {House} from "../../models/house";
+import {Bedroom} from "../../models/bedroom";
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -6,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin-dashboard.component.css']
 })
 export class AdminDashboardComponent {
+
+  dataSource: Array<House>=[];
+  allBedrooms:Array<Bedroom>=[];
 
 }
