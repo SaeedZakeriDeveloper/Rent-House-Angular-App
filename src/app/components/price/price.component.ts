@@ -1,7 +1,6 @@
-
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import { Price } from '../../models/price';
-import { PriceService } from '../../services/price.service';
+import {Price} from '../../models/price';
+import {PriceService} from '../../services/price.service';
 
 @Component({
   selector: 'app-price',
@@ -11,47 +10,36 @@ import { PriceService } from '../../services/price.service';
 export class PriceComponent implements OnInit {
 
   @Output() onClick: EventEmitter<Price> = new EventEmitter();
-  prices:Price[] = [];
-  dataLoaded = false;
-  currentPrice:Price;
-  priceFilter = "" ;
+  prices: Price[] = [];
+  currentPrice: Price;
+  priceFilter = "";
 
-  constructor(private priceService:PriceService) { }
+  constructor(private priceService: PriceService) {
+  }
 
   ngOnInit(): void {
-    this.currentPrice={
-      "id" : 0 ,
+    this.currentPrice = {
+      "id": 0,
       "title": "All Prices",
-      "from" : 0,
-      "to" : 1000
+      "from": 0,
+      "to": 1000
     };
-    this.priceService.getAllPrices().subscribe(response=>{
-      this.prices=response as any;
-      this.dataLoaded=true;
+    this.priceService.getAllPrices().subscribe(response => {
+      this.prices = response as any;
     })
   }
 
-  setCurrentPrice(price:Price){
-    this.currentPrice=price;
+  setCurrentPrice(price: Price) {
+    this.currentPrice = price;
     this.onClick.emit(price);
   }
 
-
-  getCurrentPriceClass(price:Price){
-    if(price.id==this.currentPrice.id ){
-      return "list-group-item active cursorPointer";
-    }
-    else {
-      return "list-group-item cursorPointer"
+  getCurrentPriceClass(price: Price) {
+    if (price.id == this.currentPrice.id) {
+      return "list-group-item cursorPointer active";
+    } else {
+      return "list-group-item cursorPointer";
     }
   }
+
 }
-
-
-
-
-
-
-
-
-

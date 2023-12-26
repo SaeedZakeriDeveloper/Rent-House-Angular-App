@@ -9,21 +9,18 @@ import {BedroomService} from '../../services/bedroom.service';
 })
 export class BedroomComponent implements OnInit {
 
+  @Output() onClick: EventEmitter<number> = new EventEmitter();
   bedrooms: Bedroom[] = [];
-  dataLoaded = false;
   currentBedroom: Bedroom;
   bedroomFilter = "";
-  @Output() onClick: EventEmitter<number> = new EventEmitter();
 
   constructor(private bedroomService: BedroomService) {
   }
 
   ngOnInit(): void {
-    this.currentBedroom={ "id" : 0, "title" : "All Bedrooms"};
+    this.currentBedroom = {"id": 0, "title": "All Bedrooms"};
     this.bedroomService.getAllBedrooms().subscribe(response => {
       this.bedrooms = response as any;
-      this.dataLoaded = true;
-      this.getCurrentBedroomClass(this.currentBedroom);
     })
   }
 
@@ -33,10 +30,10 @@ export class BedroomComponent implements OnInit {
   }
 
   getCurrentBedroomClass(bedroom: Bedroom) {
- if (bedroom.id == this.currentBedroom.id ) {
-      return "list-group-item active cursorPointer";
+    if (bedroom.id == this.currentBedroom.id) {
+      return "list-group-item cursorPointer active";
     } else {
-      return "list-group-item cursorPointer"
+      return "list-group-item cursorPointer";
     }
   }
 

@@ -1,13 +1,12 @@
 <div>
   <label for="priceFilter" class="form-label"></label>
-
   <input type="text" [(ngModel)]="priceFilter" class="form-control" id="priceFilter"
          placeholder="enter search phrase">
-
 </div>
 
-<ul *ngIf="dataLoaded == true" class="list-group">
-  <li (click)="setCurrentPrice(price)" *ngFor="let price of prices  |priceFilter:priceFilter"
-      [class]="getCurrentPriceClass(price)">{{price.title}}
+<ul class="list-group">
+  <li (click)="setCurrentPrice(price)" *ngFor="let price of prices|priceFilter:priceFilter"
+      [class]="getCurrentPriceClass(price)">
+    {{price.title}}
   </li>
 </ul>

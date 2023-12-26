@@ -50,7 +50,6 @@
       "description": "A cozy 1-bedroom apartment with a great view...",
       "imagePath": "../../../assets/1.jpg"
     },
-
     {
       "id": 2,
       "code": 1002,
@@ -64,7 +63,6 @@
       "description": "A stylish 1-bedroom apartment in a prime location...",
       "imagePath": "../../../assets/2.jpg"
     },
-
     {
       "id": 3,
       "code": 1003,
@@ -78,8 +76,7 @@
       "description": "A modern 1-bedroom apartment with top-notch amenities...",
       "imagePath": "../../../assets/3.jpg"
     },
-
-   {
+    {
       "id": 4,
       "code": 1004,
       "address": "101 Forest Lane",
@@ -92,7 +89,6 @@
       "description": "A charming 1-bedroom apartment surrounded by nature...",
       "imagePath": "../../../assets/4.jpg"
     },
-
     {
       "id": 5,
       "code": 2001,
@@ -106,7 +102,6 @@
       "description": "A spacious 2-bedroom apartment with a lovely balcony...",
       "imagePath": "../../../assets/5.jpg"
     },
-
     {
       "id": 6,
       "code": 2002,
@@ -120,7 +115,6 @@
       "description": "A modern 2-bedroom apartment with two bathrooms...",
       "imagePath": "../../../assets/6.jpg"
     },
-
     {
       "id": 7,
       "code": 2003,
@@ -134,7 +128,6 @@
       "description": "A cozy 2-bedroom apartment with natural lighting...",
       "imagePath": "../../../assets/7.jpg"
     },
-
     {
       "id": 8,
       "code": 2004,
@@ -142,13 +135,12 @@
       "size": "800 sq. ft.",
       "bedrooms": 2,
       "bathrooms": 2,
-      "price":  490,
+      "price": 490,
       "owner": "Henry",
       "builtYear": "2016",
       "description": "A comfortable 2-bedroom apartment with modern amenities...",
       "imagePath": "../../../assets/8.jpg"
     },
-
     {
       "id": 9,
       "code": 3001,
@@ -162,8 +154,7 @@
       "description": "A spacious 3-bedroom apartment with two bathrooms...",
       "imagePath": "../../../assets/9.jpg"
     },
-
-     {
+    {
       "id": 10,
       "code": 3002,
       "address": "789 Birch Lane",
@@ -176,7 +167,6 @@
       "description": "A modern 3-bedroom apartment with a beautiful view...",
       "imagePath": "../../../assets/10.jpg"
     },
-
     {
       "id": 11,
       "code": 3003,
@@ -190,7 +180,6 @@
       "description": "A luxurious 3-bedroom apartment with high-end finishes...",
       "imagePath": "../../../assets/11.jpg"
     },
-
     {
       "id": 12,
       "code": 3004,
@@ -205,63 +194,64 @@
       "imagePath": "../../../assets/12.jpg"
     }
   ],
-
-  "bedroom":[
-    { "id" : 0,
-      "title" : "All Bedrooms"
+  "bedroom": [
+    {
+      "id": 0,
+      "title": "All Bedrooms"
     },
-    { "id" : 1,
-      "title" : "1 bedroom"
+    {
+      "id": 1,
+      "title": "1 bedroom"
     },
-    { "id" : 2,
-      "title" : "2 bedrooms"
+    {
+      "id": 2,
+      "title": "2 bedrooms"
     },
-    { "id" : 3,
-      "title" : "3 bedrooms"
+    {
+      "id": 3,
+      "title": "3 bedrooms"
     },
-    { "id" : 4,
-    "title" :   "4 bedrooms"
+    {
+      "id": 4,
+      "title": "4 bedrooms"
     }
   ],
-  "price" :[
+  "price": [
     {
-      "id" : 0 ,
+      "id": 0,
       "title": "All Prices",
-      "from" : 0,
-      "to" : 1000
+      "from": 0,
+      "to": 1000
     },
     {
-      "id" : 1 ,
-      "title" : "From $0 to $200",
-      "from" : 0,
-      "to" : 200
+      "id": 1,
+      "title": "From $0 to $200",
+      "from": 0,
+      "to": 200
     },
     {
-      "id" : 2 ,
-      "title" : "From $200 to $400",
-      "from" : 200,
-      "to" : 400
+      "id": 2,
+      "title": "From $200 to $400",
+      "from": 200,
+      "to": 400
     },
     {
-      "id" : 3 ,
-      "title" : "From $400 to $600",
-      "from" : 400,
-      "to" : 600
+      "id": 3,
+      "title": "From $400 to $600",
+      "from": 400,
+      "to": 600
     },
     {
-      "id" : 4 ,
-      "title" : "From $600 to $800",
-      "from" : 600,
-      "to" : 800
+      "id": 4,
+      "title": "From $600 to $800",
+      "from": 600,
+      "to": 800
     },
     {
-      "id" : 5 ,
-      "title" : "From $800 to $1000",
-      "from" : 800,
-      "to" : 1000
+      "id": 5,
+      "title": "From $800 to $1000",
+      "from": 800,
+      "to": 1000
     }
-
-
   ]
-
 }
