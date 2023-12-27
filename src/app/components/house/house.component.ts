@@ -26,7 +26,7 @@ export class HouseComponent implements OnInit {
     this.houseService.getAllHouses().subscribe(res => {
       this.allHouses = res as any;
       this.filteredHouses = res as any;
-    })
+    });
   }
 
   houseFilterChanged() {

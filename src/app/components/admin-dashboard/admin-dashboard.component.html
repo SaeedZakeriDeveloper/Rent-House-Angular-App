@@ -1,6 +1,6 @@
 <dx-data-grid
   id="gridContainer"
-  keyExpr="Id"
+  keyExpr="id"
   [dataSource]="dataSource"
   [allowColumnReordering]="true"
   [showBorders]="true"
@@ -14,17 +14,19 @@
   >
   </dxo-editing>
 
-  <dxi-column dataField="code" caption="Title"></dxi-column>
-  <dxi-column dataField="address"></dxi-column>
-  <dxi-column dataField="size"></dxi-column>
-  <dxi-column dataField="bathrooms" [width]="130"></dxi-column>
-  <dxi-column dataField="price" [width]="130"></dxi-column>
-  <dxi-column dataField="owner" [width]="130"></dxi-column>
-  <dxi-column dataField="builtYear" [width]="130"></dxi-column>
-  <dxi-column dataField="description" [width]="130"></dxi-column>
-  <dxi-column dataField="bedrooms" caption="State" [width]="125">
+  <dxi-column dataField="code" caption="Code" alignment="left" [width]="120"></dxi-column>
+  <dxi-column dataField="bedrooms" caption="Bedrooms" [width]="110">
     <dxo-lookup [dataSource]="allBedrooms" displayExpr="title" valueExpr="id">
     </dxo-lookup>
   </dxi-column>
-  <dxi-column dataField="BirthDate" [width]="125" dataType="date"> </dxi-column>
+  <dxi-column dataField="address" caption="Address" [width]="300"></dxi-column>
+  <dxi-column dataField="size" caption="Size" [width]="125"></dxi-column>
+  <dxi-column dataField="bathrooms" caption="Bathrooms" alignment="left" [width]="130"></dxi-column>
+  <dxi-column dataField="price" caption="Price" [width]="130">
+    <dxo-lookup [dataSource]="allPrices" displayExpr="title" valueExpr="id">
+    </dxo-lookup>
+  </dxi-column>
+  <dxi-column dataField="owner" caption="Owner" [width]="130"></dxi-column>
+  <dxi-column dataField="builtYear" caption="BuiltYear" [width]="130"></dxi-column>
+  <dxi-column dataField="description" caption="Description" [width]="130"></dxi-column>
 </dx-data-grid>

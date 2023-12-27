@@ -21,7 +21,7 @@ export class BedroomComponent implements OnInit {
     this.currentBedroom = {"id": 0, "title": "All Bedrooms"};
     this.bedroomService.getAllBedrooms().subscribe(response => {
       this.bedrooms = response as any;
-    })
+    });
   }
 
   setCurrentBedroom(bedroom: Bedroom) {
