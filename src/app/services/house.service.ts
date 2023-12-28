@@ -17,42 +17,11 @@ export class HouseService {
   constructor(private httpClient: HttpClient) {
   }
 
-  // async sendRequest(url: string, method = 'GET', data: any = {}) {
-  //   this.logRequest(method, url, data);
-  //
-  //   const httpParams = new HttpParams({ fromObject: data });
-  //   const httpOptions = { withCredentials: true, body: httpParams };
-  //   let request;
-  //
-  //   switch (method) {
-  //     case 'GET':
-  //       request = this.http.get(url, httpOptions);
-  //       break;
-  //     case 'PUT':
-  //       request = this.http.put(url, httpParams, httpOptions);
-  //       break;
-  //     case 'POST':
-  //       request = this.http.post(url, httpParams, httpOptions);
-  //       break;
-  //     case 'DELETE':
-  //       request = this.http.delete(url, httpOptions);
-  //       break;
-  //   }
-  //
-  //   try {
-  //     const result = await lastValueFrom<any>(request);
-  //
-  //     return method === 'GET' ? result.data : {};
-  //   } catch (e) {
-  //     throw e.error.Message;
-  //   }
-  // }
-
   // getAllHouses(): Observable<ListResponseModel<House>> {
   //   return this.httpClient.get<ListResponseModel<House>>(this.apiUrl + "house"); // Array<House>
   // }
   async getAll() {
-    return await lastValueFrom<any>(this.httpClient.get<House>(this.apiUrl + "house"));
+    return await lastValueFrom<House>(this.httpClient.get<House>(this.apiUrl + "house"));
   }
   getHouseById(id: number): Observable<SingleResponseModel<House>> {
     return this.httpClient.get<SingleResponseModel<House>>(this.apiUrl + "house/" + id);
@@ -60,16 +29,14 @@ export class HouseService {
 
  async add(house: House) {
     return await lastValueFrom<any>(this.httpClient.post(this.apiUrl + "house", house));
-    // return this.httpClient.post(this.apiUrl + "house", house);
   }
 
-  updateHouse(house: House): Observable<ResponseModel> {
-    return this.httpClient.put<ResponseModel>(this.apiUrl + "house/" + house.id, house);
+  async update(id: number, house: House) {
+    return await lastValueFrom<ResponseModel>(this.httpClient.patch<ResponseModel>(this.apiUrl + "house/" + id, house));
   }
 
-
-  deleteHouse(id: number): Observable<ResponseModel> {
-    return this.httpClient.delete<ResponseModel>(this.apiUrl + "house/" + id);
+  async delete(id: number) {
+    return await lastValueFrom<void>(this.httpClient.delete<void>(this.apiUrl + "house/" + id));
   }
 
 

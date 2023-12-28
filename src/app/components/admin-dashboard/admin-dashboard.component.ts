@@ -27,15 +27,9 @@ export class AdminDashboardComponent implements OnInit{
     this.dataSource = new CustomStore({
       key: 'id',
       load: () => this.houseService.getAll(),
-
       insert: (value:House) =>  this.houseService.add(value),
-      // update: (key, values) => this.sendRequest(`${URL}/UpdateOrder`, 'PUT', {
-      //   key,
-      //   values: JSON.stringify(values),
-      // }),
-      // remove: (key) => this.sendRequest(`${URL}/DeleteOrder`, 'DELETE', {
-      //   key,
-      // }),
+      update: (key, value) => this.houseService.update(key, value),
+      remove: (key) => this.houseService.delete(key)
     });
   }
 

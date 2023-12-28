@@ -1,31 +1,53 @@
-<dx-data-grid
-  id="gridContainer"
-  keyExpr="id"
-  [dataSource]="dataSource"
-  [remoteOperations]="false"
-  [allowColumnReordering]="true"
-  [showBorders]="true"
->
-  <dxo-paging [enabled]="true"></dxo-paging>
-  <dxo-editing
-    mode="row"
-    [allowUpdating]="true"
-    [allowDeleting]="true"
-    [allowAdding]="true"
+<div>
+  <dx-data-grid
+    id="gridContainer"
+    keyExpr="id"
+    [dataSource]="dataSource"
+    [remoteOperations]="false"
+    [allowColumnReordering]="true"
+    [showBorders]="true"
+    [width]="'100%'"
+    [height]="'100%'"
   >
-  </dxo-editing>
+    <dxo-paging [enabled]="true"></dxo-paging>
+    <dxo-editing
+      mode="row"
+      [allowUpdating]="true"
+      [allowDeleting]="true"
+      [allowAdding]="true"
+    >
 
-  <dxi-column dataField="code" caption="Code" alignment="left" [width]="120"></dxi-column>
-  <dxi-column dataField="bedrooms" caption="Bedrooms" [width]="110">
-    <dxo-lookup [dataSource]="allBedrooms" displayExpr="title" valueExpr="id">
-    </dxo-lookup>
-  </dxi-column>
-  <dxi-column dataField="address" caption="Address" [width]="300"></dxi-column>
-  <dxi-column dataField="size" caption="Size" [width]="125"></dxi-column>
-  <dxi-column dataField="bathrooms" caption="Bathrooms" alignment="left" [width]="130"></dxi-column>
-  <dxi-column dataField="price" caption="Price" [width]="130">
-  </dxi-column>
-  <dxi-column dataField="owner" caption="Owner" [width]="130"></dxi-column>
-  <dxi-column dataField="builtYear" caption="BuiltYear" [width]="130"></dxi-column>
-  <dxi-column dataField="description" caption="Description" [width]="500"></dxi-column>
-</dx-data-grid>
+    </dxo-editing>
+
+    <dxi-column
+      type="buttons"
+      [width]="110"
+      [fixed]="true"
+      [fixedPosition]="'right'">
+      <dxi-button name="edit" icon="edit"></dxi-button>
+      <dxi-button name="delete" [icon]="'trash'"></dxi-button>
+      <!--    <dxi-button-->
+      <!--      hint="Clone"-->
+      <!--      icon="copy"-->
+      <!--      [visible]="isCloneIconVisible"-->
+      <!--      [disabled]="isCloneIconDisabled"-->
+      <!--      [onClick]="onCloneIconClick"-->
+      <!--    ></dxi-button>-->
+    </dxi-column>
+
+    <dxi-column dataField="code" caption="Code" alignment="left" [width]="120"></dxi-column>
+    <dxi-column dataField="bedrooms" caption="Bedrooms" [width]="110">
+      <dxo-lookup [dataSource]="allBedrooms" displayExpr="title" valueExpr="id">
+      </dxo-lookup>
+    </dxi-column>
+    <dxi-column dataField="address" caption="Address" [width]="300"></dxi-column>
+    <dxi-column dataField="size" caption="Size" [width]="125"></dxi-column>
+    <dxi-column dataField="bathrooms" caption="Bathrooms" alignment="left" [width]="130"></dxi-column>
+    <dxi-column dataField="price" caption="Price" [width]="130">
+    </dxi-column>
+    <dxi-column dataField="owner" caption="Owner" [width]="130"></dxi-column>
+    <dxi-column dataField="builtYear" caption="BuiltYear" [width]="130"></dxi-column>
+    <dxi-column dataField="description" caption="Description" [width]="500"></dxi-column>
+  </dx-data-grid>
+</div>
+
