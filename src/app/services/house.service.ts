@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpParams} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {lastValueFrom, Observable} from 'rxjs';
 import { ListResponseModel } from '../models/listResponseModel';
 import { House } from '../models/house';
@@ -52,7 +52,7 @@ export class HouseService {
   //   return this.httpClient.get<ListResponseModel<House>>(this.apiUrl + "house"); // Array<House>
   // }
   async getAll() {
-    return await lastValueFrom<any>(this.httpClient.get<House>(this.apiUrl + "house")); // Array<House>
+    return await lastValueFrom<any>(this.httpClient.get<House>(this.apiUrl + "house"));
   }
   getHouseById(id: number): Observable<SingleResponseModel<House>> {
     return this.httpClient.get<SingleResponseModel<House>>(this.apiUrl + "house/" + id);

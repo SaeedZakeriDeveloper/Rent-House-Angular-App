@@ -42,15 +42,9 @@ export class AdminDashboardComponent implements OnInit{
 
 
   ngOnInit(): void {
-    // this.houseService.getAllHouses().subscribe(res => {
-    //   this.dataSource = res as any;
-    // });
     this.bedroomService.getAllBedrooms().subscribe(response => {
       this.allBedrooms = response as any;
     });
-    // this.priceService.getAllPrices().subscribe(response => {
-    //   this.allPrices = response as any;
-    // });
   }
 
 }
