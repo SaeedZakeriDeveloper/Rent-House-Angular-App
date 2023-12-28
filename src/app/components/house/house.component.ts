@@ -23,7 +23,7 @@ export class HouseComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.houseService.getAllHouses().subscribe(res => {
+    this.houseService.getAll().then(res => {
       this.allHouses = res as any;
       this.filteredHouses = res as any;
     });

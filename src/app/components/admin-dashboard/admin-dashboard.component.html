@@ -2,6 +2,7 @@
   id="gridContainer"
   keyExpr="id"
   [dataSource]="dataSource"
+  [remoteOperations]="false"
   [allowColumnReordering]="true"
   [showBorders]="true"
 >
@@ -23,8 +24,6 @@
   <dxi-column dataField="size" caption="Size" [width]="125"></dxi-column>
   <dxi-column dataField="bathrooms" caption="Bathrooms" alignment="left" [width]="130"></dxi-column>
   <dxi-column dataField="price" caption="Price" [width]="130">
-    <dxo-lookup [dataSource]="allPrices" displayExpr="title" valueExpr="id">
-    </dxo-lookup>
   </dxi-column>
   <dxi-column dataField="owner" caption="Owner" [width]="130"></dxi-column>
   <dxi-column dataField="builtYear" caption="BuiltYear" [width]="130"></dxi-column>

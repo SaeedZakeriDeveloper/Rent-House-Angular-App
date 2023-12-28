@@ -22,8 +22,8 @@ export class HomeComponent implements OnInit {
     this.getHouses()
   }
   getHouses(){
-    this.houseService.getAllHouses().subscribe(response=>{
-      this.houses=response.data.slice(0,6);
+    this.houseService.getAll().then(response=>{
+      // this.houses=response.data.slice(0,6);
       this.dataLoaded=true;
     })
   }

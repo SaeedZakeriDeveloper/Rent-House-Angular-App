@@ -192,6 +192,17 @@
       "builtYear": "2014",
       "description": "A stylish 3-bedroom apartment with modern design...",
       "imagePath": "../../../assets/12.jpg"
+    },
+    {
+      "code": 7005,
+      "address": "Roz road",
+      "size": "500 sq ft",
+      "bathrooms": 3,
+      "price": 797,
+      "owner": "Fatemeh",
+      "builtYear": "2018",
+      "description": "fot test",
+      "id": 13
     }
   ],
   "bedroom": [

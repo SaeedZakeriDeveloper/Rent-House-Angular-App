@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {HttpClient, HttpParams} from '@angular/common/http';
+import {lastValueFrom, Observable} from 'rxjs';
 import { ListResponseModel } from '../models/listResponseModel';
 import { House } from '../models/house';
 import { ResponseModel } from '../models/responseModel';
@@ -17,16 +17,50 @@ export class HouseService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getAllHouses(): Observable<ListResponseModel<House>> {
-    return this.httpClient.get<ListResponseModel<House>>(this.apiUrl + "house"); // Array<House>
-  }
+  // async sendRequest(url: string, method = 'GET', data: any = {}) {
+  //   this.logRequest(method, url, data);
+  //
+  //   const httpParams = new HttpParams({ fromObject: data });
+  //   const httpOptions = { withCredentials: true, body: httpParams };
+  //   let request;
+  //
+  //   switch (method) {
+  //     case 'GET':
+  //       request = this.http.get(url, httpOptions);
+  //       break;
+  //     case 'PUT':
+  //       request = this.http.put(url, httpParams, httpOptions);
+  //       break;
+  //     case 'POST':
+  //       request = this.http.post(url, httpParams, httpOptions);
+  //       break;
+  //     case 'DELETE':
+  //       request = this.http.delete(url, httpOptions);
+  //       break;
+  //   }
+  //
+  //   try {
+  //     const result = await lastValueFrom<any>(request);
+  //
+  //     return method === 'GET' ? result.data : {};
+  //   } catch (e) {
+  //     throw e.error.Message;
+  //   }
+  // }
 
+  // getAllHouses(): Observable<ListResponseModel<House>> {
+  //   return this.httpClient.get<ListResponseModel<House>>(this.apiUrl + "house"); // Array<House>
+  // }
+  async getAll() {
+    return await lastValueFrom<any>(this.httpClient.get<House>(this.apiUrl + "house")); // Array<House>
+  }
   getHouseById(id: number): Observable<SingleResponseModel<House>> {
     return this.httpClient.get<SingleResponseModel<House>>(this.apiUrl + "house/" + id);
   }
 
-  addHouse(house: House): Observable<ResponseModel> {
-    return this.httpClient.post<ResponseModel>(this.apiUrl + "house", house);
+ async add(house: House) {
+    return await lastValueFrom<any>(this.httpClient.post(this.apiUrl + "house", house));
+    // return this.httpClient.post(this.apiUrl + "house", house);
   }
 
   updateHouse(house: House): Observable<ResponseModel> {
