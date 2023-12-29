@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { House } from 'src/app/models/house';
-import { HouseImage } from 'src/app/models/houseImage';
 import { HouseService  } from 'src/app/services/house.service';
 
 @Component({
@@ -10,9 +8,7 @@ import { HouseService  } from 'src/app/services/house.service';
 })
 
 export class HomeComponent implements OnInit {
-  imageUrl="https://localhost:44388";
-  houses:House[]=[];
-  currentImage : HouseImage;
+
   dataLoaded=false;
   constructor(
     private houseService:HouseService,
@@ -28,19 +24,4 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  getCurrentImageClass(house:House){
-    if(house==this.houses[0]){
-      return "houseousel-item active"
-    } else {
-      return "houseousel-item"
-    }
-  }
-
-  getButtonClass(house:House){
-    if(house==this.houses[0]){
-      return "active"
-    } else {
-      return ""
-    }
-  }
 }
