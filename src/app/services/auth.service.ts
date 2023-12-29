@@ -45,11 +45,7 @@ export class AuthService {
     return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"signup",registerModel)
   }
 
-
-
-
   logout() {
-
     this.localStorage.clear()
     this.onRefresh();
     this.router.navigate(['/login']);
@@ -103,7 +99,6 @@ export class AuthService {
       this.router.navigate([this.router.url])
     })
   }
-
 
   changePassword(passwordChangeModel:PasswordChangeModel):Observable<ResponseModel>{
     let newPath = this.apiUrl + "changepassword"
