@@ -36,6 +36,15 @@
       "password": "d23456789"
     }
   ],
+  "login": [
+    {
+      "id": 1,
+      "firstName": "fatemeh",
+      "lastName": "paydar",
+      "email": "paydar9795@gmail.com",
+      "password": "123456789"
+    }
+  ],
   "house": [
     {
       "id": 1,

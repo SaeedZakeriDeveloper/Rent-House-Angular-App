@@ -33,8 +33,6 @@ export class AdminDashboardComponent implements OnInit{
     });
   }
 
-
-
   ngOnInit(): void {
     this.bedroomService.getAllBedrooms().subscribe(response => {
       this.allBedrooms = response as any;

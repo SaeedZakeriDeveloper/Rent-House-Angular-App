@@ -28,6 +28,15 @@ export class NavComponent implements OnInit {
     }
   }
 
+  isAdmin() {
+    let id = this.authService.getCurrentUserId();
+    if (id == undefined) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   isAuthenticated(){
     return this.authService.isAuthenticated();
     // if(this.authService.isAuthenticated()){

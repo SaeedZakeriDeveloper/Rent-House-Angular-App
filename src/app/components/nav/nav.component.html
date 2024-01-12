@@ -21,7 +21,7 @@
         <li class="nav-item">
           <a style="color: white;" class="nav-link" href="#">Services</a>
         </li>
-        <li *ngIf="userRol=='admin'" class="nav-item">
+        <li *ngIf="isAdmin()" class="nav-item">
           <a style="color: white;" routerLink="admin" class="nav-link" href="#">Admin Panel</a>
         </li>
       </ul>

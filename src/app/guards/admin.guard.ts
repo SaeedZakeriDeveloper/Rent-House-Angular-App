@@ -23,7 +23,7 @@ export class AdminGuard implements CanActivate {
     // }
 
     let id = this.authService.getCurrentUserId();
-    if (id == 1) {
+    if (id == undefined) {
       return true;
     } else {
       this.router.navigate(['/']);

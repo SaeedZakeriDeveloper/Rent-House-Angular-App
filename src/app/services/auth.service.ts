@@ -42,6 +42,7 @@ export class AuthService {
 
   // har vaght bad az parantez va 2 noghte noe khoroji tabe moshakhas mishavad
   register(registerModel:RegisterModel) : Observable<SingleResponseModel<TokenModel>> {
+    // return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"signup",registerModel)
     return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"signup",registerModel)
   }
 
@@ -53,7 +54,6 @@ export class AuthService {
 
   isAuthenticated(){
     let temp=this.localStorage.getItem("token")
-    console.log(temp);
     if(this.localStorage.getItem("token")){
       return true;
     }
