@@ -1,40 +1,23 @@
-<div class="wrapper fadeInDown zero-radius" id="registerModal">
-  <div id="formContent">
-    <div class="d-flex justify-content-end px-3">
-      <button class="btn border-0" (click)="registerBtnClick()">&times;</button>
-    </div>
-    <div class="fadeIn first">
-      <h2 class="my-5">register</h2>
-    </div>
-
-    <!-- Login Form -->
-    <form [formGroup]="registerForm">
-      <input formControlName="firstName" type="text" id="firstName" class="fadeIn second zero-radius" name="firstName"
-             placeholder="first name">
-      <div *ngIf="submitted && fg.firstName.errors" class="invalid-feedback">
-        <div *ngIf="fg.firstName.errors.required">first name is required.</div>
-      </div>
-      <input formControlName="lastName" type="text" id="lastName" class="fadeIn second zero-radius" name="lastName"
-             placeholder="last name">
-      <div *ngIf="submitted && fg.lastName.errors" class="invalid-feedback">
-        <div *ngIf="fg.lastName.errors.required">last name is required.</div>
-      </div>
-      <input formControlName="email" type="email" id="email" class="fadeIn second zero-radius" name="email"
-             placeholder="info@example.com">
-      <div *ngIf="submitted && fg.email.errors" class="invalid-feedback">
-        <div *ngIf="fg.email.errors.required">Email is required</div>
-      </div>
-      <input formControlName="password" type="password" id="password" class="fadeIn third zero-radius" name="register"
-             placeholder="password">
-      <div *ngIf="submitted && fg.password.errors" class="invalid-feedback">
-        <div *ngIf="fg.password.errors.required">Password is required</div>
-        <div *ngIf="fg.password.errors.minlength">Password must be at least 6 characters</div>
-      </div>
-      <div id="formFooter">
-      </div>
-      <input (click)="register()" type="submit" class="fadeIn fourth zero-radius" value="register">
-      <h2>Are you already registered?</h2>
-      <input routerLink="/login" type="button" class="fadeIn fourth zero-radius pc" value="sign in">
-    </form>
+<form class="p-4" [formGroup]="registerForm" (submit)="onSubmit()">
+  <div class="form-group">
+    <label for="inputName">Name</label>
+    <input class="form-control" id="inputName" placeholder="Please enter your name" [formControlName]="'name'">
   </div>
-</div>
+  <div class="form-group mt-3">
+    <label for="inputLastname">Lastname</label>
+    <input class="form-control" id="inputLastname" placeholder="Please enter your lastname"
+           [formControlName]="'lastname'">
+  </div>
+  <div class="form-group mt-3">
+    <label for="inputEmail">Email</label>
+    <input type="email" class="form-control" id="inputEmail" placeholder="Please enter your email"
+           [formControlName]="'email'">
+  </div>
+  <div class="form-group mt-3 mb-4">
+    <label for="inputPassword">Password</label>
+    <input type="password" class="form-control" id="inputPassword" placeholder="Please enter your password"
+           [formControlName]="'password'">
+  </div>
+
+  <button type="submit" class="btn btn-success mt-3" [disabled]="!registerForm.valid">Submit</button>
+</form>

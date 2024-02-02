@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { AuthService } from 'src/app/services/auth.service';
-import { LocalStorageService } from 'src/app/services/local-storage-service.service';
+import { Subscription } from 'rxjs';
+import { LoginService } from 'src/app/login.service';
+
 
 @Component({
   selector: 'app-nav',
@@ -11,82 +10,25 @@ import { LocalStorageService } from 'src/app/services/local-storage-service.serv
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-  lastName=this.authService.name;
-  firstName=this.authService.surname;
-  userRol=this.authService.role
-  constructor(
-    private authService:AuthService,
-    private toasterService:ToastrService,
-    private localStorageService:LocalStorageService,
-    private router:Router
-  ) { }
+  loggedIn: boolean = false;
 
-  ngOnInit(): void {
-    if(this.isAuthenticated()){
-      this.authService.userDetailFromToken();
+  constructor(private loginService : LoginService , private router : Router ) { }
 
-    }
+  authenticated: boolean = false;
+  subscriptions: Subscription[] = [];
+  
+
+  ngOnInit(): void {    
+    this.subscriptions.push(
+      this.loginService.loginSubject.subscribe((result: any) => {
+        this.loggedIn = result.value;
+      })
+    );
   }
 
-  isAdmin() {
-    let id = this.authService.getCurrentUserId();
-    if (id == undefined) {
-      return true;
-    } else {
-      return false;
-    }
+
+  onLogout(){
+     this.loginService.logout()
+     this.router.navigate(['/login'])
   }
-
-  isAuthenticated(){
-    return this.authService.isAuthenticated();
-    // if(this.authService.isAuthenticated()){
-    //   return true
-    // }
-    // else{
-    //   return false
-    // }
-   }
-   checkAdminRole(){
-
-
-    if(this.authService.role[0]=="admin"){
-      return true
-    }
-    else{
-      return false
-
-    }
-   }
-
-   checkUserRole(){
-    if(this.authService.role=="user"){
-      return true
-    }
-    else{
-      return false
-    }
-   }
-
-   checkNotRole(){
-    if(this.authService.role==null){
-      return true
-    }
-    else{
-      return false
-    }
-   }
-
-  logout(){
-    this.authService.logout()
-    this.toasterService.success("Checked Out","Successful")
-  }
-
-  registerBtnClick(){
-    document.getElementById('registerModal').style.display='flex';
-  }
-
-  loginBtnClick(){
-    document.getElementById('loginModal').style.display='flex';
-  }
-
 }

@@ -1,78 +1,77 @@
 import {Component, OnInit} from '@angular/core';
-import {FormGroup, FormControl, Validators, AbstractControl} from '@angular/forms';
-import {ToastrService} from 'ngx-toastr';
-import {AuthService} from 'src/app/services/auth.service';
-
-//import {FormBuilder} from '@angular/forms'
+import {UserService} from '../../user.service';
+import {Router} from "@angular/router";
+import {CanComponentDeactivate} from "../../guards/register.guard";
+import {Observable} from "rxjs";
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import { IUser } from 'src/app/models/iUser';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+export class RegisterComponent implements OnInit, CanComponentDeactivate {
 
-export class RegisterComponent implements OnInit {
-  registerForm: FormGroup | undefined;
-  submitted: boolean = false;
-  dataLoaded: boolean = false;
+  // زمانی که یک کلاس را new میکنیم، constructor آن کلاس fire می شود
+  user: IUser  |  undefined 
+  registerForm!: FormGroup;
 
-  // fg: any;
-
-  constructor(
-    //private  formBuilder:FormBuilder,
-    private authService: AuthService,
-    private toasterService: ToastrService,         //dar ebteda bayad in library ro nasb konim ke va beraye nasb az syntax npm i "npm install ngx-toastr "                 //The ngx-toastr provides various kinds of options that can be used to customize the notification of our application. We might have seen it in the devices where we can modify the frequency of the notifications.
-  ) {
+  constructor(private userService: UserService, private router: Router) {
   }
-
-  get fg() {
-    return this.registerForm.controls;
-  }    //property get va hatman bayad ye meghdari return kone yani age return nakone error mid,,, methood get hastesh ke raftaresh shabihe proprtyie
-
 
   ngOnInit(): void {
-    this.createLoginForm();
-  }
-
-  createLoginForm() {
-    // this.registerForm=this.formBuilder.group({
-    //   firstName: ['', Validators.required],
-    //   lastName: ['', Validators.required],
-    //   email: ['', Validators.required],
-    //   password: ['', [Validators.required, Validators.minLength(8)]]
-    // })
-
     this.registerForm = new FormGroup({
-      firstName: new FormControl('', Validators.required),
-      lastName: new FormControl('', Validators.required),
-      email: new FormControl('', Validators.required),
-      password: new FormControl('', [Validators.required, Validators.minLength(8)])
+      'name': new FormControl(null, Validators.required),
+      'lastname': new FormControl(null),
+      'email': new FormControl(null, Validators.required),
+      'password': new FormControl(null, Validators.required)
     });
+  }
+  onSubmit() {
+    this.userService.get().subscribe((users) => {
+      if (users.length > 0) {
+        // users = [{id: 1, name: 'fa'}, {id: 2, name: 'sa'}] => map => ids = [1, 2]
+        let ids = users.map(u => u.id);
+        let maxId = Math.max(...ids);
+        this.user.id = maxId + 1;
+      } else {
+        this.user.id = 1;
+      }
+      this.user.name = this.registerForm.value.name;
+      this.user.lastname = this.registerForm.value.lastname;
+      this.user.email = this.registerForm.value.email;
+      this.user.password = this.registerForm.value.password;
 
-    // this.fg = this.registerForm.controls;
+      this.userService.add(this.user).subscribe((res) => {
+        alert('success');
+        this.registerForm.reset();
+        this.router.navigate(['']);
+      });
+    });
   }
 
-  register() {
-    if (this.registerForm.valid) {
-      let registerModel = Object.assign({}, this.registerForm.value)
-      this.authService.register(registerModel).subscribe(response => {
-          this.toasterService.success(response.message, "Success")
-          this.dataLoaded = true
-        }
-        , responseError => {
-
-          if (responseError.error.ValidationErrors?.length > 0) {
-
-            this.toasterService.error(responseError.error, "Wrong")
-          }
-
-        })
+  canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
+    let name = this.registerForm.value.name;
+    let lastname = this.registerForm.value.lastname;
+    let email = this.registerForm.value.email;
+    let password = this.registerForm.value.password;
+    if (name || lastname || email || password) {
+      if (confirm("Are you sure to exit?")) {
+        // کد ";()this.registerForm.reset" به این دلیل اضافه شده است:
+        // در حالتی که کاربر هنوز لاگین نکرده است
+        // وقتی منوی "admin" رو کلیک می کرد confirm دو مرتبه اجرا میشد
+        // چون کامپوننت admin گارد دارد دو بار path تغییر می کند
+        // یک بار وقتی از کامپوننت register به کامپوننت admin می رود(چون لاگین نکرده است وارد کامپوننت admin نمی شود)
+        // و بار دیگر وقتی از کامپوننت register به کامپوننت notAuthenticated می رود
+        this.registerForm.reset();
+        return true;
+      } else {
+        return false;
+      }
     } else {
-      this.toasterService.error("Please complete all required fields.", "Attention!")
+      return true;
     }
   }
 
-  registerBtnClick(){
-    document.getElementById('registerModal').style.display='none';
-  }
 }

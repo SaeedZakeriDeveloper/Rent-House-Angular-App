@@ -1,64 +1,51 @@
-import { Component, OnInit } from '@angular/core';
-import {FormGroup,FormBuilder,FormControl,Validators} from"@angular/forms"
-import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-import { AuthService } from 'src/app/services/auth.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable, Subscription } from 'rxjs';
+import { LoginService } from 'src/app/login.service';
+import { IUser } from 'src/app/models/iUser';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit , OnDestroy{
 
-  loginForm:FormGroup
-  dataLoaded=false
-  constructor(
-    private  formBuilder:FormBuilder,
-    private authService:AuthService,
-    private toasterService:ToastrService,
-    private router: Router,
-  ) { }
+  loggedIn: boolean = false;
+  // Holds array of subscriptions made during component lifetime.
+  subscriptions: Subscription[] = [];
+  // Store profile observable which we can display after login.
+  profile: Observable<IUser | undefined> = this.loginService.userProfileBehaviorSubject;
+
+  constructor(private router: Router, private routes: ActivatedRoute, private loginService: LoginService) {
+  }
 
   ngOnInit(): void {
-  this.createLoginForm();
-}
-  createLoginForm(){
-    this.loginForm=this.formBuilder.group({
-      email:["",Validators.required],
-      password:["",Validators.required]
-    })
-  }
-
-
-  login(){
-    let isSessionActive=localStorage.getItem("token")
-    if(
-      isSessionActive=="0"||
-      isSessionActive==undefined||
-      !(isSessionActive=="1")
-    ){
-       if(this.loginForm.valid){
-      let loginModel =Object.assign({},this.loginForm.value)
-      this.authService.login(loginModel).subscribe(response=>{
-        this.toasterService.success(response.message,"Successful");
-        localStorage.setItem("token",response.data.token);
-        this.dataLoaded=true;
-        this.authService.onRefresh();
-        this.router.navigate(['/home']);
-      }
-      ,responseError=>{
-
-        this.toasterService.error(responseError.error,"Mistake!")
+    // Add subscription to subscriptions array
+    this.subscriptions.push(
+      // چون نیاز داشتیم دقیقا زمانی که لاگین انجام می شود مقدار متغیر loggedIn را تغییر دهیم
+      // پس loginSubject را در loginService تعریف کردیم
+      // listen for login success/error
+      this.loginService.loginSubject.subscribe((result: any) => {
+        this.loggedIn = result.value;
+        if (result.event == 'login') { // if loginSubject nexted in the login method
+          let loginMessage = result.value ? 'Login was successful' : 'Error logging in';
+          alert(loginMessage);
+        }
       })
-    }
-     else {
-      this.toasterService.error("Please fill in all fields","Attention!")
-    }
-    }
-
+    );
   }
 
-  loginBtnClick(){
-    document.getElementById('loginModal').style.display='none';
+  onRegister() {
+    this.router.navigate(['/register'], {relativeTo: this.routes});
   }
+
+  onSignIn(email: string, password: string) {
+    this.loginService.login(email, password);
+  }
+
+  ngOnDestroy(): void {
+    // When component is destroyed, it is important to clean up subscriptions.
+    this.subscriptions.forEach(sub => sub.unsubscribe());
+  }
+
 }

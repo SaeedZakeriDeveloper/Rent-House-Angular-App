@@ -91,6 +91,8 @@ import { BedroomFilterPipe } from './pipes/bedroom-filter.pipe';
 import { PriceComponent } from './components/price/price.component';
 import { PriceFilterPipe } from './pipes/price-filter.pipe';
 import {DxDataGridModule, DxLoadIndicatorModule} from "devextreme-angular";
+import { AboutComponent } from './components/about/about.component';
+import { ServiceComponent } from './components/service/service.component';
 //import { HomeComponent } from './components/home/home/home.components';
 //import { UserComponent } from './components/auth/user-profil/user-profil.components';
 //import { UsereditComponent } from './components/auth/user-profil/useredit/useredit.components';
@@ -130,6 +132,8 @@ export function tokenGetter() {
     BedroomFilterPipe,
     PriceComponent,
     PriceFilterPipe,
+    AboutComponent,
+    ServiceComponent,
     //AdminDashboardComponent,
     //ColorsDashboardComponent,
     //ColorEditComponent,
