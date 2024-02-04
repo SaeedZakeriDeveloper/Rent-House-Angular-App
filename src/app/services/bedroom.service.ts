@@ -20,7 +20,7 @@ export class BedroomService {
   constructor(private httpClient:HttpClient) { }
 
   getAllBedrooms(): Observable<ListResponseModel<Bedroom>>{
-    return this.httpClient.get<ListResponseModel<Bedroom>>(this.apiUrl + "bedroom", {headers: this.headers});
+    return this.httpClient.get<ListResponseModel<Bedroom>>(this.apiUrl + "bedroom");
   }
 
   getBedroomById(id:number):Observable<SingleResponseModel<Bedroom>> {

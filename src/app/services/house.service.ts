@@ -11,12 +11,13 @@ import {SingleResponseModel} from '../models/singleResponseModel';
 export class HouseService {
 
   apiUrl = "http://localhost:3000/";
-  // res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
-  // res.setHeader('Access-Control-Allow-Headers', 'Authorization, Content-Type');
-  // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json; charset=utf-8',
+      'access-control-allow-origin': 'Access-Control-Allow-Headers'
+    })
+  };
 
-  headers = new HttpHeaders()
-    .set('Content-Type', 'application/json');
 
   constructor(private httpClient: HttpClient) {
   }
@@ -25,7 +26,7 @@ export class HouseService {
   //   return this.httpClient.get<ListResponseModel<House>>(this.apiUrl + "house"); // Array<House>
   // }
   async getAll() {
-    return await lastValueFrom<House>(this.httpClient.get<House>(this.apiUrl + "house", {headers: this.headers}));
+    return await lastValueFrom<House>(this.httpClient.get<House>(this.apiUrl + "house", this.httpOptions));
   }
 
   getHouseById(id: number): Observable<SingleResponseModel<House>> {
