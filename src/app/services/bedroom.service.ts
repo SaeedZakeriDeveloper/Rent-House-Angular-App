@@ -15,11 +15,12 @@ import { SingleResponseModel } from '../models/singleResponseModel'
 export class BedroomService {
 
  apiUrl='http://localhost:3000/';
-
+  headers = new HttpHeaders()
+    .set('Content-Type', 'application/json');
   constructor(private httpClient:HttpClient) { }
 
   getAllBedrooms(): Observable<ListResponseModel<Bedroom>>{
-    return this.httpClient.get<ListResponseModel<Bedroom>>(this.apiUrl+"bedroom");
+    return this.httpClient.get<ListResponseModel<Bedroom>>(this.apiUrl + "bedroom", {headers: this.headers});
   }
 
   getBedroomById(id:number):Observable<SingleResponseModel<Bedroom>> {
@@ -34,7 +35,7 @@ export class BedroomService {
   updateBedroom(bedroom:Bedroom):Observable<ListResponseModel<Bedroom>> {
     return this.httpClient.put<ListResponseModel<Bedroom>>(this.apiUrl + "bedroom", bedroom)
   }
-  
+
 
   deleteBedroom(id : number):Observable<ResponseModel>{
     return this.httpClient.delete<ResponseModel>(this.apiUrl + "bedroom/" + id)

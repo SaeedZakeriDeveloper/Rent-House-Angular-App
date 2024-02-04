@@ -11,3 +11,11 @@ export class BedroomFilterPipe implements PipeTransform {
     return bedroomFilter ? value.filter((c: Bedroom) => c.title.toLocaleLowerCase().indexOf(bedroomFilter) !== -1) : value;
   }
 }
+
+
+// filterString: Reza
+
+// momahammadRezA * index = 10
+// negar index = -1
+// rezaAmir * index = 0
+// reZa * index = 0

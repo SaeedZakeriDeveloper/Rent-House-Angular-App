@@ -1,7 +1,6 @@
 <div class="p-3" style="height: calc(100vh - 77px);">
   <dx-data-grid
-    id="gridContainer"
-    keyExpr="id"
+    [keyExpr]="'id'"
     [dataSource]="dataSource"
     [remoteOperations]="false"
 
